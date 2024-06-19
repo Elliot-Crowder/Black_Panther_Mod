@@ -1,0 +1,28 @@
+Blocks:
+
+Raw Vibranium Block{
+
+properties - light emission
+drops - raw vibranium chunks
+effects - vibranium sickness
+}
+
+Raw Vibranium
+
+Items:
+NA
+
+
+Block Descriptions
+
+
+
+
+
+
+
+
+
+
+
+}

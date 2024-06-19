@@ -1,6 +1,7 @@
 package net.elliot.blackpanthermod;
 
 import com.mojang.logging.LogUtils;
+import net.elliot.blackpanthermod.item.ModCreativeModeTabs;
 import net.elliot.blackpanthermod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -33,6 +34,9 @@ public class BlackPantherMod
     public BlackPantherMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        // Registers event bus for ModCreativeModeTabs
+        ModCreativeModeTabs.register(modEventBus);
 
         // Registers event bus for ModItems
         ModItems.register(modEventBus);

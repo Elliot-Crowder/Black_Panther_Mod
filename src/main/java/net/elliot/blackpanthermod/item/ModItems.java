@@ -16,6 +16,14 @@ public class ModItems {
     public static final RegistryObject<Item> RAWVIBRANIUM = ITEMS.register("rawvibranium",
             () -> new RawVibranium(new Item.Properties()));
 
+    // Registers the burger object
+    public static final RegistryObject<Item> BURGER = ITEMS.register("burger",
+            () -> new Item(new Item.Properties().food(Burger.BURGER)));
+
+    // Registers the burnt burger object
+    public static final RegistryObject<Item> BURNTBURGER = ITEMS.register("burntburger",
+            () -> new Item(new Item.Properties().food(BurntBurger.BURNTBURGER)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

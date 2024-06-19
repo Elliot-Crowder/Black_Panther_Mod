@@ -20,6 +20,8 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.vibraniumresources"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.RAWVIBRANIUM.get());
+                        output.accept(ModItems.BURGER.get());
+                        output.accept(ModItems.BURNTBURGER.get());
                     })
                     .build());
 

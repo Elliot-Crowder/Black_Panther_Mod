@@ -24,7 +24,5 @@ public class ModItems {
     public static final RegistryObject<Item> BURNTBURGER = ITEMS.register("burntburger",
             () -> new Item(new Item.Properties().food(BurntBurger.BURNTBURGER)));
 
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
-    }
+    public static void register(IEventBus eventBus) { ITEMS.register(eventBus); }
 }

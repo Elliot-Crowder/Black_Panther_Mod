@@ -1,15 +1,25 @@
 package net.elliot.blackpanthermod.block;
 
-import net.elliot.blackpanthermod.item.ModItems;
-import net.minecraft.world.item.ItemStack;
+import net.elliot.blackpanthermod.damagesource.ModDamageTypes;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+public class RawVibraniumBlock extends PipeBlock {
+    public RawVibraniumBlock(BlockBehaviour.Properties builder) { super(0.25F, builder); }
 
-public class RawVibraniumBlock extends Block {
-    public RawVibraniumBlock(Properties pProperties) {
-        super(pProperties);
-    }
+//    @Override
+//    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entityIn)
+//    {
+//        if (entityIn instanceof Player)
+//        {
+//            Player playerEntity = (Player) entityIn;
+//            playerEntity.hurt(level.damageSources().source(ModDamageTypes.RAWVIBRANIUM), 1.0F);
+//        }
+//    }
 }

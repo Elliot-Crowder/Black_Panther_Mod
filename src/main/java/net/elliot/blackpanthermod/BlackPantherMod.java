@@ -30,23 +30,24 @@ public class BlackPantherMod {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-
     public BlackPantherMod() {
         IEventBus EventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
 
-        ModEffects.register(EventBus);
+
 
         // Registers event bus for ModCreativeModeTabs
-        ModCreativeModeTabs.register(modEventBus);
-
+        ModCreativeModeTabs.register(EventBus);
         // Registers event bus for ModItems
-        ModItems.register(modEventBus);
+        ModItems.register(EventBus);
+        // Registers event bus for ModEffects
+        ModEffects.register(EventBus);
+
+
 
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
         EventBus.addListener(this::commonSetup);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -73,8 +74,7 @@ public class BlackPantherMod {
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
     }

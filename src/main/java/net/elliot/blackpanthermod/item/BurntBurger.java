@@ -5,7 +5,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
 public class BurntBurger {
-    // Adds the food properties for the burnt burger
     public static final FoodProperties BURNTBURGER = new FoodProperties.Builder()
             .nutrition(1)
             .effect(() -> new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 100),1)

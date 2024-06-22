@@ -40,7 +40,7 @@ public class VibraniumSicknessEffect extends MobEffect {
                 if (this.numTicksElapsed < 200) {
                     // be sussy
                 } else {
-                    pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RAWVIBRANIUM), 1.0F);
+                    //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
                 }
             }
         }

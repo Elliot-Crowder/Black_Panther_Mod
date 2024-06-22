@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageType;
 
 public class ModDamageTypes {
-    public static final ResourceKey<DamageType> RAWVIBRANIUM = register("rawvibranium");
+    public static final ResourceKey<DamageType> RADIATION = register("radiation");
 
     private static ResourceKey<DamageType> register(String name) {
         return ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(BlackPantherMod.MOD_ID, name));

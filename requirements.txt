@@ -1,17 +1,16 @@
 To-Do:
     Finish damage type
-    Add texture for Vibranium Sickness
-    Add the Raw Vibranium Block
+    Finish the Raw Vibranium Block
 
 
 Blocks:
     Raw Vibranium Block {
 
-        texture - ore block
+        texture - ore block (done)
+        minability - netherite tier (done)
+        drops - 1-3 raw vibranium chunk (done)
         properties - low light emission and cannot be blown up
-        drops - 1 raw vibranium chunk (unaffected by fortune)
         effects - vibranium sickness when in vicinity
         spawn - deepslate layer and as rare as netherite
-        minability - netherite tier
 
     }

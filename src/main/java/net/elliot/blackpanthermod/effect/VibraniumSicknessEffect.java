@@ -3,13 +3,13 @@ package net.elliot.blackpanthermod.effect;
 import net.elliot.blackpanthermod.damagesource.ModDamageTypes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+
 import java.lang.reflect.Method;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.server.ServerLifecycleHooks;
@@ -43,6 +43,10 @@ public class VibraniumSicknessEffect extends MobEffect {
                 if (this.numTicksElapsed < 200) {
                     // be sussy
                 } else {
+                    Object damageSource = getDamageSource(level,ModDamageTypes.RADIATION);
+                    if(damageSource != null){
+                        pLivingEntity.hurt((DamageSource) damageSource,1.0f);
+                    }
                     //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
                 }
             }
@@ -53,9 +57,29 @@ public class VibraniumSicknessEffect extends MobEffect {
         this.numTicksElapsed = 0;
     }
 
-    private void accessPrivateMethod(){
 
+    //potentially turn into a class??
+    private Object accessPrivateMethod(Object instance, String methodName, Class<?>[] paramTypes, Object... params){
+        try{
+            Method method = instance.getClass().getDeclaredMethod(methodName,paramTypes);
+            method.setAccessible(true);
+            return  method.invoke(instance,params);
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
+
+
+  private Object getDamageSource(Level level, Object modDamageType){
+        try{
+            Object damageSources = level.damageSources();
+            return accessPrivateMethod(damageSources,"source",new Class<?>[]{modDamageType.getClass()},modDamageType);
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+  }
 
 
     @Override
@@ -64,8 +88,7 @@ public class VibraniumSicknessEffect extends MobEffect {
     private Level getRegistryAccess() {
         MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
         if (server != null) {
-            ServerLevel level = server.getLevel(Level.OVERWORLD);
-            return level;
+            return server.getLevel(Level.OVERWORLD);
         }
         return null;
     }

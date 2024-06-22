@@ -1,6 +1,7 @@
 package net.elliot.blackpanthermod.item;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
+import net.elliot.blackpanthermod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,10 +21,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAWVIBRANIUM.get());
                         output.accept(ModItems.BURGER.get());
                         output.accept(ModItems.BURNTBURGER.get());
+                        output.accept(ModBlocks.RAWVIBRANIUMBLOCK.get());
                     })
                     .build());
 
-    public static void register(IEventBus eventBus) {
-        CREATIVE_MODE_TABS.register(eventBus);
-    }
+    public static void register(IEventBus eventBus) { CREATIVE_MODE_TABS.register(eventBus); }
 }

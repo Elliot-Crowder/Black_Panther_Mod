@@ -1,5 +1,5 @@
 To-Do:
-    Fix Vibranium Sickness to work only during the time frames that we want
+    Finish damage type
     Add texture for Vibranium Sickness
     Add the Raw Vibranium Block
 
@@ -7,12 +7,11 @@ To-Do:
 Blocks:
     Raw Vibranium Block {
 
-        properties - light emission
-        drops - raw vibranium chunks (1 to 3)
-        effects - vibranium sickness in vicinity
-        spawns - deepslate and as rare as netherite
+        texture - ore block
+        properties - low light emission and cannot be blown up
+        drops - 1 raw vibranium chunk (unaffected by fortune)
+        effects - vibranium sickness when in vicinity
+        spawn - deepslate layer and as rare as netherite
         minability - netherite tier
 
     }
-
-    Items:

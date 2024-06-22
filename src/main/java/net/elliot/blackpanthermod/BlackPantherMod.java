@@ -1,24 +1,20 @@
 package net.elliot.blackpanthermod;
 
 import com.mojang.logging.LogUtils;
+import net.elliot.blackpanthermod.block.ModBlocks;
+import net.elliot.blackpanthermod.item.ModCreativeModeTabs;
 import net.elliot.blackpanthermod.effect.ModEffects;
 import net.elliot.blackpanthermod.item.ModItems;
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -29,17 +25,27 @@ public class BlackPantherMod {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-
     public BlackPantherMod() {
         IEventBus EventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        // Registers event bus for ModCreativeModeTabs
+        ModCreativeModeTabs.register(EventBus);
 
+        // Registers event bus for ModItems
+        ModItems.register(EventBus);
+
+        // Registers event bus for ModEffects
         ModEffects.register(EventBus);
+
+        // Registers event bus for ModBlocks
+        ModBlocks.register(EventBus);
 
         // Register the commonSetup method for modloading
         EventBus.addListener(this::commonSetup);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
         // Register the item to a creative tab
         EventBus.addListener(this::addCreative);
     }
@@ -63,8 +69,7 @@ public class BlackPantherMod {
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
 
         }
     }

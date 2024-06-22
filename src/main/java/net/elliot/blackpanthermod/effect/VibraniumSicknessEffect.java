@@ -9,6 +9,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import java.lang.reflect.Method;
 
 public class VibraniumSicknessEffect extends MobEffect {
     private int numTicksElapsed;
@@ -50,6 +51,11 @@ public class VibraniumSicknessEffect extends MobEffect {
     private void resetNumTicksElapsed(){
         this.numTicksElapsed = 0;
     }
+
+    private void accessPrivateMethod(){
+
+    }
+
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier){

@@ -1,6 +1,7 @@
 {
-  "exhaustion": 0.1,
+  "exhaustion": 0.0,
   "message_id": "radiation",
   "scaling": "always",
-  "effects": "burning"
+  "effects": "burning",
+  "death_message_type": "radiation"
 }

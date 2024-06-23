@@ -5,6 +5,7 @@ import net.elliot.blackpanthermod.block.ModBlocks;
 import net.elliot.blackpanthermod.item.ModCreativeModeTabs;
 import net.elliot.blackpanthermod.effect.ModEffects;
 import net.elliot.blackpanthermod.item.ModItems;
+import net.elliot.blackpanthermod.sound.ModSounds;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -39,6 +40,9 @@ public class BlackPantherMod {
 
         // Registers event bus for ModBlocks
         ModBlocks.register(EventBus);
+
+        // Registers event bus for ModSounds
+        ModSounds.register(EventBus);
 
         // Register the commonSetup method for modloading
         EventBus.addListener(this::commonSetup);

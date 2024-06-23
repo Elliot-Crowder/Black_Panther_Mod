@@ -12,7 +12,14 @@ import net.minecraft.world.entity.player.Player;
 
 import java.lang.reflect.Method;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent.Remove;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.server.ServerLifecycleHooks;
+
+
 
 public class VibraniumSicknessEffect extends MobEffect {
     private int numTicksElapsed;
@@ -20,7 +27,25 @@ public class VibraniumSicknessEffect extends MobEffect {
     protected VibraniumSicknessEffect(MobEffectCategory pCategory, int pColor) {
         super(pCategory, pColor);
         this.numTicksElapsed = 0;
+        MinecraftForge.EVENT_BUS.register(this);
     }
+
+    @SubscribeEvent
+    public void onLivingDeath(LivingDeathEvent event) {
+        if (event.getEntity() instanceof Player) {
+            resetNumTicksElapsed();
+        }
+    }
+
+
+    @SubscribeEvent
+    public void onEffectRemove(Remove event){
+        LivingEntity player = event.getEntity();
+        if(player instanceof Player && event.getEffect() instanceof VibraniumSicknessEffect){
+            resetNumTicksElapsed();
+        }
+    }
+
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
@@ -36,11 +61,11 @@ public class VibraniumSicknessEffect extends MobEffect {
             this.numTicksElapsed++;
             if (duration == 1) {
                 resetNumTicksElapsed();
-            } else if (duration > 0) {
+            } else if (duration > 1) {
                 if (pLivingEntity instanceof Player player){
                     player.causeFoodExhaustion(0.1f);
                 }
-                if (this.numTicksElapsed < 200) {
+                if (this.numTicksElapsed < 400) {
                     // be sussy
                 } else {
                     Object damageSource = getDamageSource(level,ModDamageTypes.RADIATION);

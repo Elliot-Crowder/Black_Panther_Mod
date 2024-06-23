@@ -2,24 +2,19 @@ package net.elliot.blackpanthermod.effect;
 
 import net.elliot.blackpanthermod.damagesource.ModDamageTypes;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-
 import java.lang.reflect.Method;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent.Remove;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.server.ServerLifecycleHooks;
-
-
 
 public class VibraniumSicknessEffect extends MobEffect {
     private int numTicksElapsed;
@@ -37,7 +32,6 @@ public class VibraniumSicknessEffect extends MobEffect {
         }
     }
 
-
     @SubscribeEvent
     public void onEffectRemove(Remove event){
         LivingEntity player = event.getEntity();
@@ -45,7 +39,6 @@ public class VibraniumSicknessEffect extends MobEffect {
             resetNumTicksElapsed();
         }
     }
-
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
@@ -69,10 +62,9 @@ public class VibraniumSicknessEffect extends MobEffect {
                     // be sussy
                 } else {
                     Object damageSource = getDamageSource(level,ModDamageTypes.RADIATION);
-                    if(damageSource != null){
-                        pLivingEntity.hurt((DamageSource) damageSource,1.0f);
+                    if(damageSource != null && this.numTicksElapsed % 80 == 0){
+                        pLivingEntity.hurt((DamageSource) damageSource,3.0f);
                     }
-                    //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
                 }
             }
         }
@@ -81,7 +73,6 @@ public class VibraniumSicknessEffect extends MobEffect {
     private void resetNumTicksElapsed(){
         this.numTicksElapsed = 0;
     }
-
 
     //potentially turn into a class??
     private Object accessPrivateMethod(Object instance, String methodName, Class<?>[] paramTypes, Object... params){
@@ -95,7 +86,6 @@ public class VibraniumSicknessEffect extends MobEffect {
         }
     }
 
-
   private Object getDamageSource(Level level, Object modDamageType){
         try{
             Object damageSources = level.damageSources();
@@ -105,7 +95,6 @@ public class VibraniumSicknessEffect extends MobEffect {
             return null;
         }
   }
-
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) { return true; }

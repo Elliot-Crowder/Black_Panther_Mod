@@ -5,6 +5,7 @@
   "block.blackpanthermod.rawvibraniumblock": "Raw Vibranium Block",
   "creativetab.vibraniumresources": "Black Panther Mod",
   "effect.blackpanthermod.vibraniumsickness": "Vibranium Sickness",
+  "effect.blackpanthermod.vibraniumdecay": "Vibranium Decay",
   "death.attack.radiation": "%1$s was killed by radiation",
   "sounds.blackpanthermod.radiationsound": "Geiger Counter Chime"
 }

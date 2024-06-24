@@ -1,11 +1,14 @@
 package net.elliot.blackpanthermod.effect;
 
 import net.elliot.blackpanthermod.damagesource.ModDamageTypes;
+import net.minecraft.SharedConstants;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import java.lang.reflect.Method;
@@ -55,10 +58,13 @@ public class VibraniumSicknessEffect extends MobEffect {
             if (duration == 1) {
                 resetNumTicksElapsed();
             } else if (duration > 1) {
-                if (pLivingEntity instanceof Player player){
+                if (pLivingEntity instanceof Player player) {
+//                    if (this.numTicksElapsed % 200 == 0 || this.numTicksElapsed == 1) {
+//                        player.playSound(ModSounds.RADIATIONSOUND.get(), 0.75f, 1f);
+//                    }
                     player.causeFoodExhaustion(0.1f);
                 }
-                if (this.numTicksElapsed < 400) {
+                if (this.numTicksElapsed < SharedConstants.TICKS_PER_SECOND * 10) {
                     // be sussy
                 } else {
                     Object damageSource = getDamageSource(level,ModDamageTypes.RADIATION);
@@ -76,25 +82,25 @@ public class VibraniumSicknessEffect extends MobEffect {
 
     //potentially turn into a class??
     private Object accessPrivateMethod(Object instance, String methodName, Class<?>[] paramTypes, Object... params){
-        try{
+        try {
             Method method = instance.getClass().getDeclaredMethod(methodName,paramTypes);
             method.setAccessible(true);
             return  method.invoke(instance,params);
-        }catch(Exception e){
+        } catch(Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-  private Object getDamageSource(Level level, Object modDamageType){
-        try{
+    private Object getDamageSource(Level level, Object modDamageType) {
+        try {
             Object damageSources = level.damageSources();
             return accessPrivateMethod(damageSources,"source",new Class<?>[]{modDamageType.getClass()},modDamageType);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-  }
+    }
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) { return true; }

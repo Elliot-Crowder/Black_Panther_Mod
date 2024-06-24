@@ -32,7 +32,8 @@ public class ModBlocks {
     }
 
     public static final RegistryObject<Block> RAWVIBRANIUMBLOCK = registerBlock("rawvibraniumblock",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS).sound(SoundType.NETHERITE_BLOCK), UniformInt.of(3, 6)));
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS).sound(SoundType.NETHERITE_BLOCK).lightLevel(
+                    (p_152607_) -> { return 7; }), UniformInt.of(3, 6)));
 
     public static void register(IEventBus eventBus) { BLOCKS.register(eventBus); }
 }

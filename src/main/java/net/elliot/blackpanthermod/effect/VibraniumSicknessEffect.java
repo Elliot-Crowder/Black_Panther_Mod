@@ -1,41 +1,20 @@
 package net.elliot.blackpanthermod.effect;
 
-import net.elliot.blackpanthermod.damagesource.ModDamageTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.ChatComponent;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
-
-import java.awt.*;
 import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.Map;
-
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.MobEffectEvent.Remove;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.internal.TextComponentMessageFormatHandler;
 import net.minecraftforge.server.ServerLifecycleHooks;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.event.entity.living.MobEffectEvent.Expired;
-import javax.swing.text.JTextComponent;
-
 
 public class VibraniumSicknessEffect extends MobEffect {
     private int numTicksElapsed;
@@ -106,7 +85,7 @@ public class VibraniumSicknessEffect extends MobEffect {
 
         if (pLivingEntity instanceof Player player){
             player.causeFoodExhaustion(5.0f);
-                //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
+            //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
         }
 
     }
@@ -131,7 +110,7 @@ public class VibraniumSicknessEffect extends MobEffect {
     }
 
 
-  private Object getDamageSource(Level level, Object modDamageType){
+    private Object getDamageSource(Level level, Object modDamageType){
         //fetches and returns a damage source using a registry key
         try{
             Object damageSources = level.damageSources();
@@ -140,7 +119,7 @@ public class VibraniumSicknessEffect extends MobEffect {
             e.printStackTrace();
             return null;
         }
-  }
+    }
 
 
     @Override

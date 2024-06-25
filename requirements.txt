@@ -1,6 +1,7 @@
 To-Do:
-    Finish Vibranium Sickness Effect
     Finish the Raw Vibranium Block
+    Add the Black Panther Fruit (if fruit not eaten, armor gives vibranium decay)
+    Add new workstation to process raw vibranium and craft vibranium armor and tools
 
 
 Blocks:

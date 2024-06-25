@@ -48,10 +48,10 @@ public class VibraniumSicknessEffect extends MobEffect {
                         SharedConstants.TICKS_PER_MINUTE / 2,
                         0));
             }
-            Component message = net.minecraft.network.chat.Component.literal("BAKA")
-                    .withStyle(ChatFormatting.RED);
+//            Component message = net.minecraft.network.chat.Component.literal("BAKA")
+//                    .withStyle(ChatFormatting.RED);
 
-            ((Player) player).displayClientMessage(message, true);
+//            ((Player) player).displayClientMessage(message, true);
         }
     }
 
@@ -62,32 +62,30 @@ public class VibraniumSicknessEffect extends MobEffect {
         Level level;
 
         //check if effect instance is null
-        if (effectInstance != null) {
-            //needs to be chcanged to ==, testing
-            if(pLivingEntity instanceof Player player){
-                Component message = net.minecraft.network.chat.Component.literal("Null Effect Instance")
-                        .withStyle(ChatFormatting.RED);
-                player.displayClientMessage(message, true);
-                }
-            }
-
-
-        //check if we have registry access
-        level = getRegistryAccess();
-        if (level == null) {
-            if (pLivingEntity instanceof Player player) {
-                Component message = net.minecraft.network.chat.Component.literal("Failed to gain registry access")
-                        .withStyle(ChatFormatting.RED);
-                player.displayClientMessage(message, true);
-            }
-        }
+//        if (effectInstance != null) {
+//            //needs to be chcanged to ==, testing
+//            if(pLivingEntity instanceof Player player){
+//                Component message = net.minecraft.network.chat.Component.literal("Null Effect Instance")
+//                        .withStyle(ChatFormatting.RED);
+//                player.displayClientMessage(message, true);
+//                }
+//            }
+//
+//
+//        //check if we have registry access
+//        level = getRegistryAccess();
+//        if (level == null) {
+//            if (pLivingEntity instanceof Player player) {
+//                Component message = net.minecraft.network.chat.Component.literal("Failed to gain registry access")
+//                        .withStyle(ChatFormatting.RED);
+//                player.displayClientMessage(message, true);
+//            }
+//        }
 
 
         if (pLivingEntity instanceof Player player){
             player.causeFoodExhaustion(1.0f);
-            //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
         }
-
     }
 
 
@@ -140,6 +138,5 @@ public class VibraniumSicknessEffect extends MobEffect {
             return server.getLevel(Level.OVERWORLD);
         }
         return null;
-
     }
 }

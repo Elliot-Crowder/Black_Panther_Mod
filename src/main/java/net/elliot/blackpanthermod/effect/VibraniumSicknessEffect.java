@@ -13,10 +13,17 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 
 import java.awt.*;
 import java.lang.reflect.Method;
+import java.util.Iterator;
+import java.util.Map;
+
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -26,7 +33,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.internal.TextComponentMessageFormatHandler;
 import net.minecraftforge.server.ServerLifecycleHooks;
 import net.minecraft.network.chat.Component;
-
+import net.minecraftforge.event.entity.living.MobEffectEvent.Expired;
 import javax.swing.text.JTextComponent;
 
 
@@ -39,26 +46,36 @@ public class VibraniumSicknessEffect extends MobEffect {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @SubscribeEvent
-    public void onLivingDeath(LivingDeathEvent event) {
-        //event handler that resets the elapsed number of ticks since the effect has
-        //been applied to the player, after the player has died
-        if (event.getEntity() instanceof Player) {
-            resetNumTicksElapsed();
-        }
-    }
+//    @SubscribeEvent
+//    public void onLivingDeath(LivingDeathEvent event) {
+//        //event handler that resets the elapsed number of ticks since the effect has
+//        //been applied to the player, after the player has died
+//        if (event.getEntity() instanceof Player) {
+//            resetNumTicksElapsed();
+//        }
+//    }
 
 
     @SubscribeEvent
-    public void onEffectRemove(Remove event){
+    public void onEffectRemove(Expired event){
         //event handler that resets the elapsed number of ticks since the effect has
         //been applied to the player, when the effect is nullified some way other than
         //the effect expiring on its own
-        LivingEntity player = event.getEntity();
-        if(player instanceof Player && event.getEffect() instanceof VibraniumSicknessEffect){
-            resetNumTicksElapsed();
+
+        if(event.getEffectInstance().getEffect() == ModEffects.VIBRANIUM_SICKNESS.get()) {
+            LivingEntity player = event.getEntity();
+            if (player instanceof Player) {
+                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(),
+                        SharedConstants.TICKS_PER_MINUTE / 2,
+                        0));
+            }
+            Component message = net.minecraft.network.chat.Component.literal("BAKA")
+                    .withStyle(ChatFormatting.RED);
+
+            ((Player) player).displayClientMessage(message, true);
         }
     }
+
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
@@ -144,5 +161,6 @@ public class VibraniumSicknessEffect extends MobEffect {
             return server.getLevel(Level.OVERWORLD);
         }
         return null;
+
     }
 }

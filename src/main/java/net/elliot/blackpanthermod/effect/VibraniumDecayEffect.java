@@ -5,6 +5,7 @@ import net.elliot.blackpanthermod.sound.ModSounds;
 import net.minecraft.SharedConstants;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -34,7 +35,7 @@ public class VibraniumDecayEffect extends MobEffect {
                 pLivingEntity.hurt((DamageSource) damageSource,3.0f);
                 player.playSound(ModSounds.RADIATIONSOUND.get(), 0.75f, 1);
             }
-            player.causeFoodExhaustion(5.0f);
+            player.causeFoodExhaustion(1.0f);
         }
     }
 

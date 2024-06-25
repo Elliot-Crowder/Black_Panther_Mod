@@ -36,14 +36,14 @@ public class VibraniumSicknessEffect extends MobEffect {
 
 
     @SubscribeEvent
-    public void onEffectRemove(Expired event){
+    public void onEffectRemove(Expired event) {
         //event handler that resets the elapsed number of ticks since the effect has
         //been applied to the player, when the effect is nullified some way other than
         //the effect expiring on its own
 
-        if(event.getEffectInstance().getEffect() == ModEffects.VIBRANIUM_SICKNESS.get()) {
+        if (event.getEffectInstance().getEffect() == ModEffects.VIBRANIUM_SICKNESS.get()) {
             LivingEntity player = event.getEntity();
-            if (player instanceof Player) {
+            if (player instanceof Player && Math.random() * 100 < 33) {
                 player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(),
                         SharedConstants.TICKS_PER_MINUTE / 2,
                         0));
@@ -84,7 +84,7 @@ public class VibraniumSicknessEffect extends MobEffect {
 
 
         if (pLivingEntity instanceof Player player){
-            player.causeFoodExhaustion(5.0f);
+            player.causeFoodExhaustion(1.0f);
             //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
         }
 

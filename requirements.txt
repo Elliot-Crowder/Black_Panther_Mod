@@ -1,5 +1,7 @@
 To-Do:
     Finish the Raw Vibranium Block
+    add vibranium decay and sickness texture
+    Rewrite ModBlocks and ModEffects classes so that properties can be specified in their respective classes
     Add the Black Panther Fruit (if fruit not eaten, armor gives vibranium decay)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
 
@@ -10,7 +12,7 @@ Blocks:
         minability - netherite tier (done)
         drops - 1-3 raw vibranium chunk (done)
         properties - low light emission and cannot be blown up (done)
-        texture - better texture
+        texture - better texture (done)
         effects - vibranium sickness when in vicinity
         spawn - deepslate layer and as rare as netherite
 

@@ -15,7 +15,9 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 import java.lang.reflect.Method;
 
 public class VibraniumDecayEffect extends MobEffect {
-    protected VibraniumDecayEffect(MobEffectCategory pCategory, int pColor) { super(pCategory, pColor); }
+    public VibraniumDecayEffect(MobEffectCategory pCategory, int pColor) {
+        super(pCategory, pColor);
+    }
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {

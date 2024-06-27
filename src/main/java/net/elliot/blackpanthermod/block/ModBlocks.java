@@ -2,13 +2,9 @@ package net.elliot.blackpanthermod.block;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
 import net.elliot.blackpanthermod.item.ModItems;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -31,11 +27,7 @@ public class ModBlocks {
     }
 
     public static final RegistryObject<Block> RAWVIBRANIUMBLOCK = registerBlock("rawvibraniumblock",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties
-                    .copy(Blocks.ANCIENT_DEBRIS)
-                    .sound(SoundType.NETHERITE_BLOCK)
-                    .lightLevel((p_152607_) -> { return 7; }),
-                    UniformInt.of(3, 6)));
+            () -> new RawVibraniumBlock(BlockBehaviour.Properties.of()));
 
     public static void register(IEventBus eventBus) { BLOCKS.register(eventBus); }
 }

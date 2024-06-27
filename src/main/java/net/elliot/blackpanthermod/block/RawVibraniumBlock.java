@@ -39,13 +39,19 @@ public class RawVibraniumBlock extends BaseEntityBlock {
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         AABB effectArea = new AABB(pPos).inflate(3);
         List<Player> players = pLevel.getEntitiesOfClass(Player.class, effectArea);
-        for (Player player : players) {
+        for (Player player : pLevel.players()) {
             MobEffectInstance existingEffect = player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get());
-            if (existingEffect == null) {
-                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
+            if (effectArea.contains(player.getBoundingBox().getCenter())) {
+                if (existingEffect == null) {
+                    player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
+                } else if (existingEffect.getDuration() < 20) {
+                    player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
+                }
+            } else {
+                if (existingEffect != null && existingEffect.getDuration() < 20) {
+                    player.removeEffect(ModEffects.VIBRANIUM_SICKNESS.get());
+                }
             }
         }
-        // Implement code to remove the effect when duration equals 0
-        super.animateTick(pState, pLevel, pPos, pRandom);
     }
 }

@@ -4,16 +4,18 @@ import net.elliot.blackpanthermod.effect.ModEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import java.util.List;
 import java.util.Random;
+import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.Nullable;
 
-public class RawVibraniumBlock extends Block {
+public class RawVibraniumBlock extends BaseEntityBlock {
     public RawVibraniumBlock(Properties pProperties) {
         super(Properties
                 .copy(Blocks.NETHERITE_BLOCK)
@@ -21,19 +23,29 @@ public class RawVibraniumBlock extends Block {
     }
 
     @Override
-    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        if (pEntity instanceof Player player) {
-            MobEffectInstance existingEffect = player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get());
-            if (existingEffect == null || existingEffect.getDuration() < 60) {
-                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
-            }
-        }
-        super.stepOn(pLevel, pPos, pState, pEntity);
-    }
-
-    @Override
     public int getExpDrop(BlockState state, LevelReader level, RandomSource randomSource, BlockPos pos, int fortuneLevel, int silkTouchLevel) {
         Random rand = new Random();
         return silkTouchLevel == 0 ? rand.nextInt(6) + 3 : 0;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) { return null; }
+
+    @Override
+    public RenderShape getRenderShape(BlockState pState) { return RenderShape.MODEL; }
+
+    @Override
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        AABB effectArea = new AABB(pPos).inflate(3);
+        List<Player> players = pLevel.getEntitiesOfClass(Player.class, effectArea);
+        for (Player player : players) {
+            MobEffectInstance existingEffect = player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get());
+            if (existingEffect == null) {
+                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
+            }
+        }
+        // Implement code to remove the effect when duration equals 0
+        super.animateTick(pState, pLevel, pPos, pRandom);
     }
 }

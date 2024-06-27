@@ -1,23 +1,13 @@
 package net.elliot.blackpanthermod.effect;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.entity.player.Player;
-import java.lang.reflect.Method;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.client.event.RenderGuiOverlayEvent;
-import net.minecraftforge.client.gui.overlay.GuiOverlayManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.server.ServerLifecycleHooks;
-import net.minecraft.network.chat.Component;
 import net.minecraftforge.event.entity.living.MobEffectEvent.Expired;
 
 public class VibraniumSicknessEffect extends MobEffect {
@@ -34,9 +24,7 @@ public class VibraniumSicknessEffect extends MobEffect {
         if (event.getEffectInstance().getEffect() == ModEffects.VIBRANIUM_SICKNESS.get()) {
             LivingEntity player = event.getEntity();
             if (player instanceof Player && Math.random() * 100 < 33) {
-                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(),
-                        SharedConstants.TICKS_PER_MINUTE / 2,
-                        0));
+                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(), 600));
             }
         }
     }

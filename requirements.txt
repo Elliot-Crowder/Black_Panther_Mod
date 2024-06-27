@@ -1,6 +1,6 @@
 To-Do:
-    Finish the Raw Vibranium Block (add world generation and AOE effect)
-        note - effect applied by block cannot be /effect cleared
+    Finish the Raw Vibranium Block (add world generation)
+        note - effect applied by block cannot be /effect cleared but it should be
     add vibranium decay and sickness texture
     add overlay for vibranium decay (like a pumpkin)
     made vibranium sickness turn your hunger bar purple

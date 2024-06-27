@@ -1,10 +1,13 @@
 To-Do:
-    Finish the Raw Vibranium Block (add world generation, AOE effect, and when sickness runs out, apply decay)
+    Finish the Raw Vibranium Block (add world generation and AOE effect)
+        note - effect applied by block cannot be /effect cleared
     add vibranium decay and sickness texture
     add overlay for vibranium decay (like a pumpkin)
     made vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black (like wither effect)
     Rewrite ModEffects classes so that properties can be specified in their respective classes
-    Add the Black Panther Fruit (if fruit not eaten, armor gives vibranium decay)
-    make garden structure where black panther fruit generates
+    Add the Black Panther Fruit (permanently increases strength, speed, jump height, and health.
+        if fruit not eaten, armor gives vibranium decay)
+    make garden structure where black panther fruit generates (craft fruit with something
+        else to make it consumable)
     Add new workstation to process raw vibranium and craft vibranium armor and tools

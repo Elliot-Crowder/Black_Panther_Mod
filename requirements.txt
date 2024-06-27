@@ -1,19 +1,10 @@
 To-Do:
-    Finish the Raw Vibranium Block
+    Finish the Raw Vibranium Block (add world generation, AOE effect, and when sickness runs out, apply decay)
     add vibranium decay and sickness texture
-    Rewrite ModBlocks and ModEffects classes so that properties can be specified in their respective classes
+    add overlay for vibranium decay (like a pumpkin)
+    made vibranium sickness turn your hunger bar purple
+    make vibranium decay turn your hearts black (like wither effect)
+    Rewrite ModEffects classes so that properties can be specified in their respective classes
     Add the Black Panther Fruit (if fruit not eaten, armor gives vibranium decay)
+    make garden structure where black panther fruit generates
     Add new workstation to process raw vibranium and craft vibranium armor and tools
-
-
-Blocks:
-    Raw Vibranium Block {
-
-        minability - netherite tier (done)
-        drops - 1-3 raw vibranium chunk (done)
-        properties - low light emission and cannot be blown up (done)
-        texture - better texture (done)
-        effects - vibranium sickness when in vicinity
-        spawn - deepslate layer and as rare as netherite
-
-    }

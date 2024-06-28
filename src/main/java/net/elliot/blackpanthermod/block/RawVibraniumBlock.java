@@ -40,15 +40,23 @@ public class RawVibraniumBlock extends BaseEntityBlock {
         AABB effectArea = new AABB(pPos).inflate(3);
         List<Player> players = pLevel.getEntitiesOfClass(Player.class, effectArea);
         for (Player player : pLevel.players()) {
-            MobEffectInstance existingEffect = player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get());
+            MobEffectInstance existingSicknessEffect = player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get());
+            MobEffectInstance existingDecayEffect = player.getEffect(ModEffects.VIBRANIUM_DECAY.get());
+            // If player is inside the bounding box, it'll apply sickness
+            // Once sickness runs out, it'll apply decay until the player dies
+            // Decay is not properly damaging the player and neither the sickness or decay can be /cleared
             if (effectArea.contains(player.getBoundingBox().getCenter())) {
-                if (existingEffect == null) {
+                if (existingSicknessEffect == null && existingDecayEffect == null) {
                     player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
-                } else if (existingEffect.getDuration() < 20) {
-                    player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
+                } else if (existingSicknessEffect != null && existingSicknessEffect.getDuration() < 20) {
+                    if (Math.random() * 100 < 33.33) {
+                        // Make it so it says infinity and not some large number
+                        player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(), 999999999));
+                    }
                 }
+                // Effects slowly wither out if you leave the bounding box
             } else {
-                if (existingEffect != null && existingEffect.getDuration() < 20) {
+                if (existingSicknessEffect != null && existingSicknessEffect.getDuration() < 20) {
                     player.removeEffect(ModEffects.VIBRANIUM_SICKNESS.get());
                 }
             }

@@ -2,8 +2,8 @@ package net.elliot.blackpanthermod.effect;
 
 import net.elliot.blackpanthermod.damagesource.ModDamageTypes;
 import net.elliot.blackpanthermod.sound.ModSounds;
-import net.minecraft.SharedConstants;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -15,8 +15,15 @@ import net.minecraftforge.server.ServerLifecycleHooks;
 import java.lang.reflect.Method;
 
 public class VibraniumDecayEffect extends MobEffect {
-    public VibraniumDecayEffect(MobEffectCategory pCategory, int pColor) {
-        super(pCategory, pColor);
+    public VibraniumDecayEffect(MobEffectCategory pCategory, int pColor) { super(pCategory, pColor); }
+
+    @Override
+    public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
+        if (pDuration == Integer.MAX_VALUE || pDuration % 60 == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -32,25 +39,12 @@ public class VibraniumDecayEffect extends MobEffect {
 
         Object damageSource = getDamageSource(level, ModDamageTypes.RADIATION);
         if (pLivingEntity instanceof Player player) {
-            if (duration % 60 == 0) {
-                pLivingEntity.hurt((DamageSource) damageSource,3.0f);
-                player.playSound(ModSounds.RADIATIONSOUND.get(), 0.75f, 1);
-            }
+            pLivingEntity.hurt((DamageSource) damageSource,3.0f);
+            player.playNotifySound(ModSounds.RADIATIONSOUND.get(), SoundSource.PLAYERS, 0.75f, 1);
             player.causeFoodExhaustion(1.0f);
         }
     }
 
-    @Override
-    public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        //take more damage over time?
-        if (this instanceof VibraniumDecayEffect) {
-            return pDuration % SharedConstants.TICKS_PER_SECOND == 0;
-        } else {
-            return false;
-        }
-    }
-
-    //potentially turn into a class??
     private Object accessPrivateMethod(Object instance, String methodName, Class<?>[] paramTypes, Object... params){
         try {
             Method method = instance.getClass().getDeclaredMethod(methodName,paramTypes);

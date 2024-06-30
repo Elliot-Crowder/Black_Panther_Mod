@@ -1,40 +1,20 @@
 package net.elliot.blackpanthermod.effect;
 
-import net.elliot.blackpanthermod.damagesource.ModDamageTypes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.SharedConstants;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.ChatComponent;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
-
-import java.awt.*;
-import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.Map;
-
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.MobEffectEvent.Remove;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.internal.TextComponentMessageFormatHandler;
 import net.minecraftforge.server.ServerLifecycleHooks;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.event.entity.living.MobEffectEvent.Expired;
-import javax.swing.text.JTextComponent;
+
 
 
 public class VibraniumSicknessEffect extends MobEffect {
@@ -45,15 +25,6 @@ public class VibraniumSicknessEffect extends MobEffect {
         this.numTicksElapsed = 0;
         MinecraftForge.EVENT_BUS.register(this);
     }
-
-//    @SubscribeEvent
-//    public void onLivingDeath(LivingDeathEvent event) {
-//        //event handler that resets the elapsed number of ticks since the effect has
-//        //been applied to the player, after the player has died
-//        if (event.getEntity() instanceof Player) {
-//            resetNumTicksElapsed();
-//        }
-//    }
 
 
     @SubscribeEvent
@@ -110,37 +81,6 @@ public class VibraniumSicknessEffect extends MobEffect {
         }
 
     }
-
-
-    private void resetNumTicksElapsed(){
-        this.numTicksElapsed = 0;
-    }
-
-
-    //potentially turn into a class??
-    private Object accessPrivateMethod(Object instance, String methodName, Class<?>[] paramTypes, Object... params){
-        //accesses a private method in order to access and return a registry key
-        try{
-            Method method = instance.getClass().getDeclaredMethod(methodName,paramTypes);
-            method.setAccessible(true);
-            return  method.invoke(instance,params);
-        }catch(Exception e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-
-  private Object getDamageSource(Level level, Object modDamageType){
-        //fetches and returns a damage source using a registry key
-        try{
-            Object damageSources = level.damageSources();
-            return accessPrivateMethod(damageSources,"source",new Class<?>[]{modDamageType.getClass()},modDamageType);
-        }catch(Exception e){
-            e.printStackTrace();
-            return null;
-        }
-  }
 
 
     @Override

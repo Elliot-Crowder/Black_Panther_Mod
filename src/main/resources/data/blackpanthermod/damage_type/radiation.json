@@ -1,7 +1,7 @@
 {
   "exhaustion": 0.0,
   "message_id": "radiation",
-  "scaling": "always",
+  "scaling": "when_caused_by_living_non_player",
   "effects": "burning",
   "death_message_type": "radiation"
 }

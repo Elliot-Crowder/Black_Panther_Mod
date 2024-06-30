@@ -2,10 +2,11 @@
   "item.blackpanthermod.rawvibranium": "Raw Vibranium",
   "item.blackpanthermod.burger": "Burger",
   "item.blackpanthermod.burntburger": "Burnt Burger",
-  "block.blackpanthermod.rawvibraniumblock": "Raw Vibranium Block",
-  "creativetab.vibraniumresources": "Black Panther Mod",
+  "item.blackpanthermod.processedvibraniumvial": "Processed Vibranium Vial",
+  "block.blackpanthermod.rawvibraniumblock": "Raw Vibranium Ore",
   "effect.blackpanthermod.vibraniumsickness": "Vibranium Sickness",
   "effect.blackpanthermod.vibraniumdecay": "Vibranium Decay",
+  "creativetab.vibraniumresources": "Black Panther Mod",
   "death.attack.radiation": "%1$s was killed by radiation",
   "sounds.blackpanthermod.radiationsound": "Geiger Counter Chime"
 }

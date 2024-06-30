@@ -13,9 +13,9 @@ public class ModEffects {
             DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, BlackPantherMod.MOD_ID);
 
     public static final RegistryObject<MobEffect> VIBRANIUM_SICKNESS = MOB_EFFECTS.register("vibraniumsickness",
-            () -> new VibraniumSicknessEffect(MobEffectCategory.HARMFUL,5578058));
+            () -> new VibraniumSicknessEffect(MobEffectCategory.HARMFUL,8889187));
     public static final RegistryObject<MobEffect> VIBRANIUM_DECAY = MOB_EFFECTS.register("vibraniumdecay",
-            () -> new VibraniumDecayEffect(MobEffectCategory.HARMFUL, 7561558));
+            () -> new VibraniumDecayEffect(MobEffectCategory.HARMFUL, 5578058));
 
     public static void register(IEventBus eventBus){
         MOB_EFFECTS.register(eventBus);

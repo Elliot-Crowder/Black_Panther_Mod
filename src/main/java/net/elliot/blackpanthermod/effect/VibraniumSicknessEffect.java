@@ -18,6 +18,7 @@ import net.minecraftforge.event.entity.living.MobEffectEvent.Expired;
 
 
 public class VibraniumSicknessEffect extends MobEffect {
+    public VibraniumSicknessEffect(MobEffectCategory pCategory, int pColor) { super(pCategory, pColor); }
     private int numTicksElapsed;
 
     protected VibraniumSicknessEffect(MobEffectCategory pCategory, int pColor) {
@@ -28,59 +29,22 @@ public class VibraniumSicknessEffect extends MobEffect {
 
 
     @SubscribeEvent
-    public void onEffectRemove(Expired event){
-        //event handler that resets the elapsed number of ticks since the effect has
-        //been applied to the player, when the effect is nullified some way other than
-        //the effect expiring on its own
-
-        if(event.getEffectInstance().getEffect() == ModEffects.VIBRANIUM_SICKNESS.get()) {
+    public void onEffectRemove(Expired event) {
+        if (event.getEffectInstance().getEffect() == ModEffects.VIBRANIUM_SICKNESS.get()) {
             LivingEntity player = event.getEntity();
-            if (player instanceof Player) {
-                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(),
-                        SharedConstants.TICKS_PER_MINUTE / 2,
-                        0));
+            if (player instanceof Player && Math.random() * 100 < 33.33) {
+                player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(), -1));
             }
-            Component message = net.minecraft.network.chat.Component.literal("BAKA")
-                    .withStyle(ChatFormatting.RED);
-
-            ((Player) player).displayClientMessage(message, true);
         }
     }
-
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        MobEffectInstance effectInstance = pLivingEntity.getEffect(this);
-        Level level;
-
-        //check if effect instance is null
-        if (effectInstance != null) {
-            //needs to be chcanged to ==, testing
-            if(pLivingEntity instanceof Player player){
-                Component message = net.minecraft.network.chat.Component.literal("Null Effect Instance")
-                        .withStyle(ChatFormatting.RED);
-                player.displayClientMessage(message, true);
-                }
-            }
-
-
-        //check if we have registry access
-        level = getRegistryAccess();
-        if (level == null) {
-            if (pLivingEntity instanceof Player player) {
-                Component message = net.minecraft.network.chat.Component.literal("Failed to gain registry access")
-                        .withStyle(ChatFormatting.RED);
-                player.displayClientMessage(message, true);
-            }
+        if (pLivingEntity instanceof Player player) {
+            player.causeFoodExhaustion(1.0f);
         }
-
-
-        if (pLivingEntity instanceof Player player){
-            player.causeFoodExhaustion(5.0f);
-                //pLivingEntity.hurt(level.damageSources().source(ModDamageTypes.RADIATION), 1.0F);
-        }
-
     }
+
 
 
     @Override

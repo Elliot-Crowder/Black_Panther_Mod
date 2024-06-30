@@ -18,9 +18,10 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.RAWVIBRANIUM.get()))
                     .title(Component.translatable("creativetab.vibraniumresources"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.RAWVIBRANIUM.get());
                         output.accept(ModItems.BURGER.get());
                         output.accept(ModItems.BURNTBURGER.get());
+                        output.accept(ModItems.RAWVIBRANIUM.get());
+                        output.accept(ModItems.PROCESSEDVIBRANIUMVIAL.get());
                         output.accept(ModBlocks.RAWVIBRANIUMBLOCK.get());
                     })
                     .build());

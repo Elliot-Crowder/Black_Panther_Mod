@@ -2,6 +2,7 @@ package net.elliot.blackpanthermod;
 
 import com.mojang.logging.LogUtils;
 import net.elliot.blackpanthermod.block.ModBlocks;
+import net.elliot.blackpanthermod.event.ModEventHandlers;
 import net.elliot.blackpanthermod.item.ModCreativeModeTabs;
 import net.elliot.blackpanthermod.effect.ModEffects;
 import net.elliot.blackpanthermod.item.ModItems;
@@ -46,6 +47,8 @@ public class BlackPantherMod {
 
         // Register the commonSetup method for modloading
         EventBus.addListener(this::commonSetup);
+
+        MinecraftForge.EVENT_BUS.register(ModEventHandlers.class);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

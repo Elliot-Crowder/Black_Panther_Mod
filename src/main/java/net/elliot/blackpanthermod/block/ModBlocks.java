@@ -27,7 +27,7 @@ public class ModBlocks {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC)));
     }
 
-    public static final RegistryObject<Block> RAWVIBRANIUMBLOCK = registerBlock("rawvibraniumblock",
+    public static final RegistryObject<Block> RAW_VIBRANIUM_BLOCK = registerBlock("rawvibraniumblock",
             () -> new RawVibraniumBlock(BlockBehaviour.Properties.of()));
 
     public static void register(IEventBus eventBus) { BLOCKS.register(eventBus); }

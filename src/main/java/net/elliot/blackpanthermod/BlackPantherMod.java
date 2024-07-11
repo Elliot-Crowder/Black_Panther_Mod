@@ -3,6 +3,7 @@ package net.elliot.blackpanthermod;
 import com.mojang.logging.LogUtils;
 import net.elliot.blackpanthermod.block.ModBlocks;
 import net.elliot.blackpanthermod.event.ModEventHandlers;
+import net.elliot.blackpanthermod.init.BlockEntityInit;
 import net.elliot.blackpanthermod.item.ModCreativeModeTabs;
 import net.elliot.blackpanthermod.effect.ModEffects;
 import net.elliot.blackpanthermod.item.ModItems;
@@ -30,17 +31,18 @@ public class BlackPantherMod {
     public BlackPantherMod() {
         IEventBus EventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        BlockEntityInit.BLOCK_ENTITIES.register(EventBus);
         // Registers event bus for ModCreativeModeTabs
-        ModCreativeModeTabs.register(EventBus);
+        ModCreativeModeTabs.CREATIVE_MODE_TABS.register(EventBus);
 
         // Registers event bus for ModItems
-        ModItems.register(EventBus);
+        ModItems.ITEMS.register(EventBus);
 
         // Registers event bus for ModEffects
-        ModEffects.register(EventBus);
+        ModEffects.MOB_EFFECTS.register(EventBus);
 
         // Registers event bus for ModBlocks
-        ModBlocks.register(EventBus);
+        ModBlocks.BLOCKS.register(EventBus);
 
         // Registers event bus for ModSounds
         ModSounds.register(EventBus);

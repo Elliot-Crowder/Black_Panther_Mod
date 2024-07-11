@@ -1,6 +1,5 @@
 To-Do:
-    Finish the Raw Vibranium Block (add world generation)
-        note - effect applied by block cannot be /effect cleared but it should be
+    Finish the Raw Vibranium Block (add world generation and AOE)
     add vibranium decay and sickness texture
     add overlay for vibranium decay (like a pumpkin)
     made vibranium sickness turn your hunger bar purple
@@ -11,3 +10,5 @@ To-Do:
     make garden structure where black panther fruit generates (craft fruit with something
         else to make it consumable)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
+    Check if playSound is playing locally or globally
+    make sure all functionality works in multiplayer

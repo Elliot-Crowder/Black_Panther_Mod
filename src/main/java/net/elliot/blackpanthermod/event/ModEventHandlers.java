@@ -1,6 +1,5 @@
 package net.elliot.blackpanthermod.event;
 
-
 import net.elliot.blackpanthermod.effect.ModEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;

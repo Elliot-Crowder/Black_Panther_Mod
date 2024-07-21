@@ -7,8 +7,7 @@ import net.minecraft.world.item.Item;
 
 public class Burger extends Item {
     public Burger(Properties pProperties) {
-        super(pProperties
-                .food(Burger.BURGER));
+        super(pProperties.food(Burger.BURGER));
     }
 
     public static final FoodProperties BURGER = new FoodProperties.Builder()

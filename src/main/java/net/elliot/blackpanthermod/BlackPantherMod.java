@@ -1,13 +1,8 @@
 package net.elliot.blackpanthermod;
 
 import com.mojang.logging.LogUtils;
-import net.elliot.blackpanthermod.block.ModBlocks;
+import net.elliot.blackpanthermod.init.*;
 import net.elliot.blackpanthermod.event.ModEventHandlers;
-import net.elliot.blackpanthermod.init.BlockEntityInit;
-import net.elliot.blackpanthermod.item.ModCreativeModeTabs;
-import net.elliot.blackpanthermod.effect.ModEffects;
-import net.elliot.blackpanthermod.item.ModItems;
-import net.elliot.blackpanthermod.sound.ModSounds;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -31,21 +26,13 @@ public class BlackPantherMod {
     public BlackPantherMod() {
         IEventBus EventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        BlockEntityInit.BLOCK_ENTITIES.register(EventBus);
-        // Registers event bus for ModCreativeModeTabs
+        // Registers event bus for all init classes
+        ModBlockEntities.BLOCK_ENTITIES.register(EventBus);
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(EventBus);
-
-        // Registers event bus for ModItems
         ModItems.ITEMS.register(EventBus);
-
-        // Registers event bus for ModEffects
         ModEffects.MOB_EFFECTS.register(EventBus);
-
-        // Registers event bus for ModBlocks
         ModBlocks.BLOCKS.register(EventBus);
-
-        // Registers event bus for ModSounds
-        ModSounds.register(EventBus);
+        ModSounds.SOUND_EVENTS.register(EventBus);
 
         // Register the commonSetup method for modloading
         EventBus.addListener(this::commonSetup);

@@ -22,7 +22,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BURNTBURGER.get());
                         output.accept(ModItems.RAWVIBRANIUM.get());
                         output.accept(ModItems.PROCESSEDVIBRANIUMVIAL.get());
-                        output.accept(ModBlocks.RAWVIBRANIUMBLOCK.get());
+                        output.accept(ModBlocks.RAW_VIBRANIUM_BLOCK.get());
                     })
                     .build());
 

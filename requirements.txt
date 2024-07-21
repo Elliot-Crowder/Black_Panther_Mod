@@ -4,9 +4,8 @@ To-Do:
     add overlay for vibranium decay (like a pumpkin)
     made vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black (like wither effect)
-    Rewrite ModEffects classes so that properties can be specified in their respective classes
     Add the Black Panther Fruit (permanently increases strength, speed, jump height, and health.
-        if fruit not eaten, armor gives vibranium decay)
+        if fruit not eaten, armor and tools gives vibranium decay)
     make garden structure where black panther fruit generates (craft fruit with something
         else to make it consumable)
     Add new workstation to process raw vibranium and craft vibranium armor and tools

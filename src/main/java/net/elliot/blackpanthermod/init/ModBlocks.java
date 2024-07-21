@@ -24,7 +24,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC)));
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.RARE)));
     }
 
     public static final RegistryObject<Block> RAW_VIBRANIUM_BLOCK = registerBlock("rawvibraniumblock",

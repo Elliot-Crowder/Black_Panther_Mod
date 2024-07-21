@@ -5,7 +5,6 @@ import net.minecraft.world.item.Rarity;
 
 public class ProcessedVibraniumVial extends Item {
     public ProcessedVibraniumVial(Properties pProperties) {
-        super(pProperties
-                .rarity(Rarity.EPIC));
+        super(pProperties.rarity(Rarity.EPIC));
     }
 }

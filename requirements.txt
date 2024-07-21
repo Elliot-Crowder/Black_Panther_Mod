@@ -1,5 +1,5 @@
 To-Do:
-    Finish the Raw Vibranium Block (add world generation and AOE)
+    Finish the Raw Vibranium Block (add world generation)
     add vibranium decay and sickness texture
     add overlay for vibranium decay (like a pumpkin)
     made vibranium sickness turn your hunger bar purple

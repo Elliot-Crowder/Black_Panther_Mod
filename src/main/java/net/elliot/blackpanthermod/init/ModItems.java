@@ -1,10 +1,7 @@
 package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
-import net.elliot.blackpanthermod.item.Burger;
-import net.elliot.blackpanthermod.item.BurntBurger;
-import net.elliot.blackpanthermod.item.ProcessedVibraniumVial;
-import net.elliot.blackpanthermod.item.RawVibranium;
+import net.elliot.blackpanthermod.item.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,6 +20,10 @@ public class ModItems {
             () -> new Burger(new Item.Properties()));
     public static final RegistryObject<Item> BURNTBURGER = ITEMS.register("burntburger",
             () -> new BurntBurger(new Item.Properties()));
+    public static final RegistryObject<Item> DORMANTFRUIT = ITEMS.register("dormantfruit",
+            () -> new DormantBlackPantherFruit(new Item.Properties()));
+    public static final RegistryObject<Item> ACTIVATEDFRUIT = ITEMS.register("activatedfruit",
+            () -> new BlackPantherFruit(new Item.Properties()));
 
     public static void register(IEventBus eventBus) { ITEMS.register(eventBus); }
 }

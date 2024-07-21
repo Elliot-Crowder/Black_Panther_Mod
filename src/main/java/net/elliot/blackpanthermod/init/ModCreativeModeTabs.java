@@ -19,6 +19,8 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.BURGER.get());
                         output.accept(ModItems.BURNTBURGER.get());
+                        output.accept(ModItems.DORMANTFRUIT.get());
+                        output.accept(ModItems.ACTIVATEDFRUIT.get());
                         output.accept(ModItems.RAWVIBRANIUM.get());
                         output.accept(ModItems.PROCESSEDVIBRANIUMVIAL.get());
                         output.accept(ModBlocks.RAW_VIBRANIUM_BLOCK.get());

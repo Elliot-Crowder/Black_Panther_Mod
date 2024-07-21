@@ -1,7 +1,7 @@
 package net.elliot.blackpanthermod.block;
 
 import net.elliot.blackpanthermod.blockentity.util.TickableBlockEntity;
-import net.elliot.blackpanthermod.init.BlockEntityInit;
+import net.elliot.blackpanthermod.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.Random;
 
 public class RawVibraniumBlock extends Block implements EntityBlock {
@@ -25,7 +24,7 @@ public class RawVibraniumBlock extends Block implements EntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-       return BlockEntityInit.RAW_VIBRANIUM_BLOCK_ENTITY.get().create(blockPos,blockState);
+       return ModBlockEntities.RAW_VIBRANIUM_BLOCK_ENTITY.get().create(blockPos,blockState);
     }
 
     @Override

@@ -1,8 +1,8 @@
 package net.elliot.blackpanthermod.blockentity;
 
 import net.elliot.blackpanthermod.blockentity.util.TickableBlockEntity;
-import net.elliot.blackpanthermod.effect.ModEffects;
-import net.elliot.blackpanthermod.init.BlockEntityInit;
+import net.elliot.blackpanthermod.init.ModEffects;
+import net.elliot.blackpanthermod.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +18,7 @@ public class RawVibraniumBlockEntity extends BlockEntity implements TickableBloc
     private final BlockState blockState;
 
     public RawVibraniumBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntityInit.RAW_VIBRANIUM_BLOCK_ENTITY.get(), pPos, pBlockState);
+        super(ModBlockEntities.RAW_VIBRANIUM_BLOCK_ENTITY.get(), pPos, pBlockState);
         this.blockPos = pPos;
         this.blockState = pBlockState;
     }

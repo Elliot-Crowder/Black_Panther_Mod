@@ -1,4 +1,4 @@
-package net.elliot.blackpanthermod.sound;
+package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
 import net.minecraft.resources.ResourceLocation;

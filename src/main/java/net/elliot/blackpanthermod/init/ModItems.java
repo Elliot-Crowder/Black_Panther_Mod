@@ -1,6 +1,10 @@
-package net.elliot.blackpanthermod.item;
+package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
+import net.elliot.blackpanthermod.item.Burger;
+import net.elliot.blackpanthermod.item.BurntBurger;
+import net.elliot.blackpanthermod.item.ProcessedVibraniumVial;
+import net.elliot.blackpanthermod.item.RawVibranium;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

@@ -1,4 +1,4 @@
-package net.elliot.blackpanthermod.damagesource;
+package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
 import net.minecraft.core.registries.Registries;

@@ -1,7 +1,7 @@
-package net.elliot.blackpanthermod.block;
+package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
-import net.elliot.blackpanthermod.item.ModItems;
+import net.elliot.blackpanthermod.block.RawVibraniumBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;

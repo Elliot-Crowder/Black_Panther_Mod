@@ -1,7 +1,6 @@
-package net.elliot.blackpanthermod.item;
+package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
-import net.elliot.blackpanthermod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

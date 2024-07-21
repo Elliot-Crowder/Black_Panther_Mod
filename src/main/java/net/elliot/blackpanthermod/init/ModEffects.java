@@ -1,6 +1,8 @@
-package net.elliot.blackpanthermod.effect;
+package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
+import net.elliot.blackpanthermod.effect.VibraniumDecayEffect;
+import net.elliot.blackpanthermod.effect.VibraniumSicknessEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraftforge.eventbus.api.IEventBus;

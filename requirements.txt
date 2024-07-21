@@ -1,14 +1,19 @@
 To-Do:
     Finish the Raw Vibranium Block (add world generation)
+        there is a loophole to avoid vibranium decay if you just drink milk right after vibranium sickness
+        runs out. we should probably take a look at this. we want milk to get rid of both sickness and decay,
+        but the milk lets you cheese getting the ore
     add vibranium decay and sickness texture
-    add overlay for vibranium decay (like a pumpkin)
     made vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black (like wither effect)
     Add the Black Panther Fruit (permanently increases strength, speed, jump height, and health.
         if fruit not eaten, armor and tools gives vibranium decay)
-        make it so effects of fruit can be removed
-    make garden structure where black panther fruit generates (craft fruit with something
-        else to make it consumable)
+        make it so effects of fruit can be reversed
+        add texture for unactivated and activated fruit
+        unactivated must be creafted with something to make the activated fruit
+        fruit makes you immune to sickness and decay
+    make garden structure where black panther fruit generates
     Add new workstation to process raw vibranium and craft vibranium armor and tools
+    add all tools and armor
     Check if playSound is playing locally or globally
     make sure all functionality works in multiplayer

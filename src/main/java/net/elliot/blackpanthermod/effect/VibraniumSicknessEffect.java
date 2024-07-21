@@ -6,9 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
 public class VibraniumSicknessEffect extends MobEffect {
-    public VibraniumSicknessEffect(MobEffectCategory pCategory, int pColor) {
-        super(pCategory, pColor);
-    }
+    public VibraniumSicknessEffect(MobEffectCategory pCategory, int pColor) { super(pCategory, pColor); }
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {

@@ -40,7 +40,7 @@ public class VibraniumDecayEffect extends MobEffect {
         Object damageSource = getDamageSource(level, ModDamageTypes.RADIATION);
         if (pLivingEntity instanceof Player player) {
             pLivingEntity.hurt((DamageSource) damageSource,3.0f);
-            player.playNotifySound(ModSounds.RADIATIONSOUND.get(), SoundSource.PLAYERS, 0.75f, 1);
+            player.playSound(ModSounds.RADIATIONSOUND.get());
             player.causeFoodExhaustion(1.0f);
         }
     }

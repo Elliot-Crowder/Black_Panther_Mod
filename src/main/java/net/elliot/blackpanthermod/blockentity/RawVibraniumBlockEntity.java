@@ -13,7 +13,9 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class RawVibraniumBlockEntity extends BlockEntity implements TickableBlockEntity {
+
     private final BlockPos blockPos;
+
     public RawVibraniumBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.RAW_VIBRANIUM_BLOCK_ENTITY.get(), pPos, pBlockState);
         this.blockPos = pPos;

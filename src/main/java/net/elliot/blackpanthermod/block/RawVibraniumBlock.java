@@ -23,14 +23,14 @@ public class RawVibraniumBlock extends Block implements EntityBlock {
     }
 
     @Override
-    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-       return ModBlockEntities.RAW_VIBRANIUM_BLOCK_ENTITY.get().create(blockPos,blockState);
-    }
-
-    @Override
     public int getExpDrop(BlockState state, LevelReader level, RandomSource randomSource, BlockPos pos, int fortuneLevel, int silkTouchLevel) {
         Random rand = new Random();
         return silkTouchLevel == 0 ? rand.nextInt(6) + 3 : 0;
+    }
+
+    @Override
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+       return ModBlockEntities.RAW_VIBRANIUM_BLOCK_ENTITY.get().create(blockPos,blockState);
     }
 
     @Nullable
@@ -39,5 +39,3 @@ public class RawVibraniumBlock extends Block implements EntityBlock {
         return TickableBlockEntity.getTickerHelper(level);
     }
 }
-
-

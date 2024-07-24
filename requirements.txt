@@ -4,7 +4,6 @@ To-Do:
     make vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black (like wither effect)
     Add the Black Panther Fruit (permanently increases strength, speed, jump height, and health.)
-        if fruit not eaten, armor and tools gives vibranium decay
         add texture for unactivated and activated fruit
         unactivated must be crafted with something to make the activated fruit
         fruit makes you immune to sickness and decay
@@ -12,7 +11,9 @@ To-Do:
     make garden structure where dormant fruit generates (maybe add a boss here?)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
     add all tools and armor
+        if fruit not eaten, armor and tools give vibranium decay
     make sure all functionality works in multiplayer
 
     Edge Cases:
         the milk loophole for the vibranium ore beacon effect
+        panther power effects are removed when you are killed (strength, jump boost, speed, health, and heart color)

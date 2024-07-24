@@ -1,20 +1,18 @@
 To-Do:
     Finish the Raw Vibranium Block (add world generation)
-        recode tick function to decrease lag and remove milk loophole
-    fix ModBlocks and ModEffects so item properties and effect properties can be defined in their respective classes
-    Make VibraniumDecay class cleaner
     add vibranium decay and sickness texture
-    made vibranium sickness turn your hunger bar purple
+    make vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black (like wither effect)
     Add the Black Panther Fruit (permanently increases strength, speed, jump height, and health.)
         if fruit not eaten, armor and tools gives vibranium decay
         add texture for unactivated and activated fruit
-        unactivated must be creafted with something to make the activated fruit
+        unactivated must be crafted with something to make the activated fruit
         fruit makes you immune to sickness and decay
+        fruit makes your hearts purple
     make garden structure where dormant fruit generates (maybe add a boss here?)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
     add all tools and armor
     make sure all functionality works in multiplayer
 
     Edge Cases:
-
+        the milk loophole for the vibranium ore beacon effect

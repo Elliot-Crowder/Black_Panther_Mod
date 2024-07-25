@@ -5,7 +5,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 
 public class RemovePantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -18,7 +18,7 @@ public class RemovePantherPower {
                 })));
     }
 
-    private static int removePantherPower(CommandSourceStack pSource, ServerPlayer pTarget) throws CommandSyntaxException {
+    private static int removePantherPower(CommandSourceStack pSource, Player pTarget) throws CommandSyntaxException {
         // include edge case for multiple players
         return 1;
     }

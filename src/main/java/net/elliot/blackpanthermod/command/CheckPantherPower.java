@@ -6,7 +6,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 
 public class CheckPantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -19,9 +19,8 @@ public class CheckPantherPower {
                 })));
     }
 
-    private static int checkPantherPower(CommandSourceStack pSource, ServerPlayer pTarget) throws CommandSyntaxException {
-        //change if statement to check if player has panther power
-        if (true) {
+    private static int checkPantherPower(CommandSourceStack pSource, Player pTarget) throws CommandSyntaxException {
+        if (pTarget.hasPower()) {
             pSource.sendSuccess(() -> {
                 return Component.literal(pTarget.getName().getString() + " has the power of The Black Panther");
             }, false);
@@ -30,6 +29,6 @@ public class CheckPantherPower {
                 return Component.literal(pTarget.getName().getString() + " doesn't have the power of The Black Panther");
             }, false);
         }
-        return 0;
+        return 1;
     }
 }

@@ -21,8 +21,8 @@ public class VibraniumDecayEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
+        pLivingEntity.hurt(ModDamageTypes.radiationDamage(pLivingEntity.level()), 3);
         if (pLivingEntity instanceof Player player) {
-            player.hurt(ModDamageTypes.radiationDamage(player.level()), 3);
             player.playSound(ModSounds.RADIATIONSOUND.get(), 0.75f, 1.0f);
         }
     }

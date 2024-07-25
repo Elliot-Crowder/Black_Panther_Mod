@@ -4,6 +4,7 @@ import net.elliot.blackpanthermod.playercap.BlackPantherPower;
 import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
 import net.elliot.blackpanthermod.playercap.util.PantherPowerProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,14 +34,13 @@ public class PlayerCapEvents {
     }
 
     @SubscribeEvent
-    public void onClonePlayer(PlayerEvent.Clone e) {
-        if (e.isWasDeath()) {
-            // Retrieve the capability from the original player
-            e.getOriginal().getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(oldStore -> {
-                e.getOriginal().getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
-                });
-            });
+    public static void onClonePlayer(PlayerEvent.Clone e) {
+        if (e.getEntity() instanceof ServerPlayer playerNew && e.getOriginal() instanceof ServerPlayer playerOld) {
+            playerOld.reviveCaps();
+            playerNew.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(capabilityNew ->
+                    playerOld.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(capabilityOld ->
+                            capabilityNew.deserializeNBT(capabilityOld.serializeNBT())));
+            playerOld.invalidateCaps();
         }
     }
 }

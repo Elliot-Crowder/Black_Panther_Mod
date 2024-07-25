@@ -5,10 +5,15 @@
   "item.blackpanthermod.processedvibraniumvial": "Processed Vibranium Vial",
   "item.blackpanthermod.dormantfruit": "Dormant Fruit",
   "item.blackpanthermod.activatedfruit": "Black Panther Fruit",
+
   "block.blackpanthermod.rawvibraniumblock": "Raw Vibranium Ore",
+
   "effect.blackpanthermod.vibraniumsickness": "Vibranium Sickness",
   "effect.blackpanthermod.vibraniumdecay": "Vibranium Decay",
+
   "creativetab.vibraniumresources": "Black Panther Mod",
+
   "death.attack.radiation": "%1$s was killed by radiation",
+
   "sounds.blackpanthermod.radiationsound": "Geiger Counter Chime"
 }

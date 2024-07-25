@@ -13,7 +13,7 @@ public class CheckPantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("checkpantherpower")
                 .requires((command) -> {
-                    return command.hasPermission(3);
+                    return command.hasPermission(2);
                 })
                 .then(Commands.argument("target", EntityArgument.player()).executes((command) -> {
                     return checkPantherPower(command.getSource(), EntityArgument.getPlayer(command, "target"));

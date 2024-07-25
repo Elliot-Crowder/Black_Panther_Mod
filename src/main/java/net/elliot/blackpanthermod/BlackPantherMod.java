@@ -1,8 +1,9 @@
 package net.elliot.blackpanthermod;
 
 import com.mojang.logging.LogUtils;
+import net.elliot.blackpanthermod.event.CommandEvents;
+import net.elliot.blackpanthermod.event.PlayerCapEvents;
 import net.elliot.blackpanthermod.init.*;
-import net.elliot.blackpanthermod.event.ModEventHandlers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -26,7 +27,7 @@ public class BlackPantherMod {
     public BlackPantherMod() {
         IEventBus EventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Registers event bus for all init classes
+        // Register event bus for all init classes
         ModBlockEntities.BLOCK_ENTITIES.register(EventBus);
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(EventBus);
         ModItems.ITEMS.register(EventBus);
@@ -34,10 +35,12 @@ public class BlackPantherMod {
         ModBlocks.BLOCKS.register(EventBus);
         ModSounds.SOUND_EVENTS.register(EventBus);
 
+        // Register all event handlers
+        MinecraftForge.EVENT_BUS.register(CommandEvents.class);
+        MinecraftForge.EVENT_BUS.register(PlayerCapEvents.class);
+
         // Register the commonSetup method for modloading
         EventBus.addListener(this::commonSetup);
-
-        MinecraftForge.EVENT_BUS.register(ModEventHandlers.class);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

@@ -10,8 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModCreativeModeTabs {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BlackPantherMod.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BlackPantherMod.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> VIBRANIUM_RESOURCES = CREATIVE_MODE_TABS.register("vibraniumresources",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.RAWVIBRANIUM.get()))

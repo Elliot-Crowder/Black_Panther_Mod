@@ -1,6 +1,6 @@
 package net.elliot.blackpanthermod.effect;
 
-import net.elliot.blackpanthermod.init.ModDamageTypes;
+import net.elliot.blackpanthermod.damagetype.ModDamageTypes;
 import net.elliot.blackpanthermod.init.ModSounds;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;

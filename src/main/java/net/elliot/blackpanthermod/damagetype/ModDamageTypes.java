@@ -1,7 +1,6 @@
-package net.elliot.blackpanthermod.init;
+package net.elliot.blackpanthermod.damagetype;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +16,6 @@ public class ModDamageTypes {
     }
 
     public static DamageSource radiationDamage(Level level) {
-        Holder<DamageType> radiationHolder = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(RADIATION);
-        return new DamageSource(radiationHolder);
+        return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(RADIATION));
     }
 }

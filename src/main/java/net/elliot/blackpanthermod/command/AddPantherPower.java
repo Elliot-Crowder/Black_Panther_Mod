@@ -7,6 +7,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 
 public class AddPantherPower {
@@ -31,6 +32,10 @@ public class AddPantherPower {
                 pSource.sendSuccess(() -> {
                     return Component.literal(pTarget.getName().getString() + " was given the power of The Black Panther");
                 }, true);
+                pTarget.getAttribute(Attributes.MAX_HEALTH).setBaseValue(40.0D);
+                //pTarget.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(test balanced values);
+                //pTarget.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(test balanced values);
+                //pTarget.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(test balanced values);
             }
         });
         return 1;

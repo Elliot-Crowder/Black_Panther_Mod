@@ -1,5 +1,5 @@
 To-Do:
-    finish color values, strength, speed, and jump height for panther power (food items and commands)
+    * finish color values, strength, speed, and jump height for panther power (food items and commands)
     create feature list (list of everything in the mod for documentation)
     Finish the Raw Vibranium Block (add world generation)
     add vibranium decay and sickness texture

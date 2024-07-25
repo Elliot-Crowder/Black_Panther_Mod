@@ -6,5 +6,4 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 
 public class BlackPantherPowerCapability {
     public static final Capability<BlackPantherPower> BLACK_PANTHER_POWER_CAPABILITY = CapabilityManager.get(new CapabilityToken<BlackPantherPower>() {});
-
 }

@@ -22,10 +22,16 @@ public class AddPantherPower {
 
     private static int applyPantherPower(CommandSourceStack pSource, Player pTarget) throws CommandSyntaxException {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
-            power.setPower(true);
-            pSource.sendSuccess(() -> {
-                return Component.literal(pTarget.getName().getString() + " was given the power of The Black Panther");
-            }, true);
+            if (power.hasPower()) {
+                pSource.sendSuccess(() -> {
+                    return Component.literal(pTarget.getName().getString() + " already has the power of The Black Panther");
+                }, false);
+            } else {
+                power.setPower(true);
+                pSource.sendSuccess(() -> {
+                    return Component.literal(pTarget.getName().getString() + " was given the power of The Black Panther");
+                }, true);
+            }
         });
         return 1;
     }

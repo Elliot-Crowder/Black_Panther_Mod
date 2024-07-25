@@ -22,10 +22,16 @@ public class RemovePantherPower {
 
     private static int removePantherPower(CommandSourceStack pSource, Player pTarget) throws CommandSyntaxException {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
-            power.setPower(false);
-            pSource.sendSuccess(() -> {
-                return Component.literal("The power of The Black Panther was removed from " + pTarget.getName().getString());
-            }, true);
+            if (power.hasPower()) {
+                power.setPower(false);
+                pSource.sendSuccess(() -> {
+                    return Component.literal("The power of The Black Panther was removed from " + pTarget.getName().getString());
+                }, true);
+            } else {
+                pSource.sendSuccess(() -> {
+                    return Component.literal(pTarget.getName().getString() + " didn't have the power of The Black Panther");
+                }, false);
+            }
         });
         return 1;
     }

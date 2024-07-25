@@ -2,6 +2,7 @@ package net.elliot.blackpanthermod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -20,15 +21,17 @@ public class CheckPantherPower {
     }
 
     private static int checkPantherPower(CommandSourceStack pSource, Player pTarget) throws CommandSyntaxException {
-        if (pTarget.hasPower()) {
-            pSource.sendSuccess(() -> {
-                return Component.literal(pTarget.getName().getString() + " has the power of The Black Panther");
-            }, false);
-        } else {
-            pSource.sendSuccess(() -> {
-                return Component.literal(pTarget.getName().getString() + " doesn't have the power of The Black Panther");
-            }, false);
-        }
+        pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
+            if (power.hasPower()) {
+                pSource.sendSuccess(() -> {
+                    return Component.literal(pTarget.getName().getString() + " has the power of The Black Panther");
+                }, false);
+            } else {
+                pSource.sendSuccess(() -> {
+                    return Component.literal(pTarget.getName().getString() + " doesn't have the power of The Black Panther");
+                }, false);
+            }
+        });
         return 1;
     }
 }

@@ -2,7 +2,7 @@ To-Do:
     * Fix BlackPantherPowerCapabilities
         add enhanced jump height to panther power
         fix balancing on attribute modifiers
-        make sure all attribute modifiers are actually taking effect
+    reformat PlayerCapEvents
     create feature list (list of everything in the mod for documentation)
     Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture

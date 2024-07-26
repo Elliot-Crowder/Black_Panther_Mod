@@ -1,10 +1,17 @@
 To-Do:
+    * Fix BlackPantherPowerCapabilities
+        add enhanced jump height to panther power
+        fix balancing on attribute modifiers
+        make sure all attribute modifiers are actually taking effect
     create feature list (list of everything in the mod for documentation)
-    Finish the Raw Vibranium Block (add world generation)
+    Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture
+    add potions for decay and sickness and add brewing stand recipe for them
     make vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black and hunger bar purple
-    Add the Black Panther Fruit (permanently increases strength, speed, jump height, and health.)
+    make it so milk doesn't remove vibranium sickness and decay
+    add new item that cures you of vibranium decay
+    Finish the Black Panther Fruit
         add texture for unactivated and activated fruit
         unactivated must be crafted with something to make the activated fruit
         fruit makes you immune to sickness and decay
@@ -12,16 +19,13 @@ To-Do:
     make garden structure where dormant fruit generates (maybe add a boss here?)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
     add all tools and armor
-        if fruit not eaten, armor and tools give vibranium decay
+        if fruit not eaten, armor and tools give temporary vibranium decay
     make sure all functionality works in multiplayer
-    edit mods.toml for Mods List page
+    edit mods.toml and gradle.properties for Mods List page
     organize files and code for final version
 
 
-
 Edge Cases:
-    the milk loophole for the vibranium ore beacon effect
-    apply and remove commands only work for singular player instead of multiple
 
 
 

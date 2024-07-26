@@ -28,6 +28,7 @@ public class AddPantherPower {
                 }, false);
             } else {
                 BlackPantherPowerCapability.modifyPlayerAttributes(pTarget);
+                pTarget.setHealth(40.0F);
                 pSource.sendSuccess(() -> {
                     return Component.literal(pTarget.getName().getString() + " was given the power of The Black Panther");
                 }, true);

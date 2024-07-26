@@ -22,7 +22,7 @@ public class RawVibraniumBlockEntity extends BlockEntity implements TickableBloc
     @Override
     public void tick() {
         tickCounter++;
-        List<ServerPlayer> playersInArea = this.getLevel().getEntitiesOfClass(ServerPlayer.class, new AABB(this.worldPosition).inflate(9));
+        List<ServerPlayer> playersInArea = this.getLevel().getEntitiesOfClass(ServerPlayer.class, new AABB(this.worldPosition).inflate(6));
         if (tickCounter % 20 == 0) {
             tickCounter = 0;
             for (ServerPlayer player : playersInArea) {

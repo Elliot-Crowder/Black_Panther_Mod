@@ -1,14 +1,17 @@
 To-Do:
-    * finish color values, strength, speed, and jump height for panther power (food items and commands)
+    * Fix BlackPantherPowerCapabilities
+        make sure all attribute modifiers are actually taking effect (health and speed work for sure)
+        add enhanced jump height to panther power
+        fix balancing on attribute modifiers
     create feature list (list of everything in the mod for documentation)
-    Finish the Raw Vibranium Block (add world generation)
+    Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture
     add potions for decay and sickness and add brewing stand recipe for them
     make vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black and hunger bar purple
     make it so milk doesn't remove vibranium sickness and decay
     add new item that cures you of vibranium decay
-    Add the Black Panther Fruit
+    Finish the Black Panther Fruit
         add texture for unactivated and activated fruit
         unactivated must be crafted with something to make the activated fruit
         fruit makes you immune to sickness and decay
@@ -16,13 +19,15 @@ To-Do:
     make garden structure where dormant fruit generates (maybe add a boss here?)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
     add all tools and armor
-        if fruit not eaten, armor and tools give vibranium decay
+        if fruit not eaten, armor and tools give temporary vibranium decay
     make sure all functionality works in multiplayer
     edit mods.toml for Mods List page
     organize files and code for final version
 
 
 Edge Cases:
+    there is one case of redundancy in onClonePlayer where setPower() and setHeartColor() are called from
+    BlackPantherPowerCapabilities. This is redundant because it sets them to values that they already have
 
 
 Feature list:

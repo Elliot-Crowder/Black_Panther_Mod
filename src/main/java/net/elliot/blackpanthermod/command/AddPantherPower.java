@@ -7,8 +7,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 
 public class AddPantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -21,21 +20,17 @@ public class AddPantherPower {
                 })));
     }
 
-    private static int applyPantherPower(CommandSourceStack pSource, Player pTarget) throws CommandSyntaxException {
+    private static int applyPantherPower(CommandSourceStack pSource, ServerPlayer pTarget) throws CommandSyntaxException {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
             if (power.hasPower()) {
                 pSource.sendSuccess(() -> {
                     return Component.literal(pTarget.getName().getString() + " already has the power of The Black Panther");
                 }, false);
             } else {
-                power.setPower(true);
+                BlackPantherPowerCapability.modifyPlayerAttributes(pTarget);
                 pSource.sendSuccess(() -> {
                     return Component.literal(pTarget.getName().getString() + " was given the power of The Black Panther");
                 }, true);
-                pTarget.getAttribute(Attributes.MAX_HEALTH).setBaseValue(40.0D);
-                //pTarget.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(test balanced values);
-                //pTarget.getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(test balanced values);
-                //pTarget.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(test balanced values);
             }
         });
         return 1;

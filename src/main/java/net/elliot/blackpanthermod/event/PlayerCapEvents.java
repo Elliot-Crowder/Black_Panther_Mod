@@ -6,7 +6,6 @@ import net.elliot.blackpanthermod.playercap.util.PantherPowerProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -26,7 +25,7 @@ public class PlayerCapEvents {
 
     @SubscribeEvent
     public static void onAttachCapabilitesPlayer(AttachCapabilitiesEvent<Entity> event) {
-        if (event.getObject() instanceof Player) {
+        if (event.getObject() instanceof ServerPlayer) {
             if (!event.getObject().getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).isPresent()) {
                 event.addCapability(new ResourceLocation(MOD_ID,"properties"), new PantherPowerProvider());
             }
@@ -40,6 +39,16 @@ public class PlayerCapEvents {
             playerNew.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(capabilityNew ->
                     playerOld.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(capabilityOld ->
                             capabilityNew.deserializeNBT(capabilityOld.serializeNBT())));
+            playerOld.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
+                if (power.hasPower()) {
+                    BlackPantherPowerCapability.modifyPlayerAttributes(playerNew);
+                    if (e.isWasDeath()) {
+                        playerNew.setHealth(40.0F);
+                    } else {
+                        playerNew.setHealth(playerOld.getHealth());
+                    }
+                }
+            });
             playerOld.invalidateCaps();
         }
     }

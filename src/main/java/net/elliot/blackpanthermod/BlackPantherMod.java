@@ -27,7 +27,7 @@ public class BlackPantherMod {
     public BlackPantherMod() {
         IEventBus EventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register event bus for all init classes
+        // Register event bus for init classes
         ModBlockEntities.BLOCK_ENTITIES.register(EventBus);
         ModCreativeModeTabs.CREATIVE_MODE_TABS.register(EventBus);
         ModItems.ITEMS.register(EventBus);
@@ -35,7 +35,7 @@ public class BlackPantherMod {
         ModBlocks.BLOCKS.register(EventBus);
         ModSounds.SOUND_EVENTS.register(EventBus);
 
-        // Register all event handlers
+        // Register event handler classes
         MinecraftForge.EVENT_BUS.register(CommandEvents.class);
         MinecraftForge.EVENT_BUS.register(PlayerCapEvents.class);
 

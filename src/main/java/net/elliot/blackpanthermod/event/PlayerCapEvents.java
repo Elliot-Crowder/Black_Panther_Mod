@@ -6,9 +6,11 @@ import net.elliot.blackpanthermod.playercap.util.PantherPowerProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -32,15 +34,19 @@ public class PlayerCapEvents {
         }
     }
 
+
+
     @SubscribeEvent
     public void onClonePlayer(PlayerEvent.Clone e) {
-        if (e.isWasDeath()) {
-            // Retrieve the capability from the original player
-            e.getOriginal().getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(oldStore -> {
-                e.getOriginal().getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(newStore -> {
-                    newStore.copyFrom(oldStore);
-                });
-            });
+        if (e.getEntity() instanceof Player  && e.getOriginal() instanceof Player) {
+            Player playerNew = (Player) e.getEntity();
+            Player playerOld = (Player) e.getOriginal();
+            if (e.isWasDeath()) {
+                playerOld.reviveCaps();
+                playerNew.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(capabilityNew ->
+                        playerOld.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(capabilityOld ->
+                                capabilityNew.deserializeNBT(capabilityOld.serializeNBT())));
+            }
         }
     }
 }

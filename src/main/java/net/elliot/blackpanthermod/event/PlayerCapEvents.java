@@ -7,7 +7,12 @@ import net.elliot.blackpanthermod.playercap.util.PantherPowerProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -36,7 +41,7 @@ public class PlayerCapEvents {
         if (event.getEntity() instanceof ServerPlayer player) {
             player.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
                 if (power.hasPower()) {
-                    player.
+                    player.sendSystemMessage(Component.literal("attempting jump"));
                 }
             });
         }
@@ -59,6 +64,17 @@ public class PlayerCapEvents {
                 }
             });
             playerOld.invalidateCaps();
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            player.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
+                if (power.hasPower()) {
+                    BlackPantherPowerCapability.modifyPlayerAttributes(player);
+                }
+            });
         }
     }
 }

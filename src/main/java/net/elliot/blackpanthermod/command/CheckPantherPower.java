@@ -7,7 +7,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 
 public class CheckPantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -20,7 +20,7 @@ public class CheckPantherPower {
                 })));
     }
 
-    private static int checkPantherPower(CommandSourceStack pSource, Player pTarget) throws CommandSyntaxException {
+    private static int checkPantherPower(CommandSourceStack pSource, ServerPlayer pTarget) throws CommandSyntaxException {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
             if (power.hasPower()) {
                 pSource.sendSuccess(() -> {

@@ -1,9 +1,9 @@
 package net.elliot.blackpanthermod.effect;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 
 public class VibraniumSicknessEffect extends MobEffect {
     public VibraniumSicknessEffect(MobEffectCategory pCategory, int pColor) { super(pCategory, pColor); }
@@ -19,7 +19,7 @@ public class VibraniumSicknessEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        if (pLivingEntity instanceof Player player) {
+        if (pLivingEntity instanceof ServerPlayer player) {
             player.causeFoodExhaustion(1.0f);
         }
     }

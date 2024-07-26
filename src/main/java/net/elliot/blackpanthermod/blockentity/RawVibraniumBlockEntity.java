@@ -4,9 +4,8 @@ import net.elliot.blackpanthermod.blockentity.util.TickableBlockEntity;
 import net.elliot.blackpanthermod.init.ModEffects;
 import net.elliot.blackpanthermod.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -23,12 +22,10 @@ public class RawVibraniumBlockEntity extends BlockEntity implements TickableBloc
     @Override
     public void tick() {
         tickCounter++;
-        Level pLevel = this.getLevel();
-        AABB effectArea = new AABB(this.worldPosition).inflate(7);
-        List<Player> playersInArea = pLevel.getEntitiesOfClass(Player.class, effectArea);
+        List<ServerPlayer> playersInArea = this.getLevel().getEntitiesOfClass(ServerPlayer.class, new AABB(this.worldPosition).inflate(9));
         if (tickCounter % 20 == 0) {
             tickCounter = 0;
-            for (Player player : playersInArea) {
+            for (ServerPlayer player : playersInArea) {
                 MobEffectInstance existingSicknessEffect = player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get());
                 MobEffectInstance existingDecayEffect = player.getEffect(ModEffects.VIBRANIUM_DECAY.get());
                 if (existingSicknessEffect == null && existingDecayEffect == null) {

@@ -2,6 +2,8 @@ package net.elliot.blackpanthermod.effect;
 
 import net.elliot.blackpanthermod.damagetype.ModDamageTypes;
 import net.elliot.blackpanthermod.init.ModSounds;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,7 +23,7 @@ public class VibraniumDecayEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.hurt(ModDamageTypes.radiationDamage(pLivingEntity.level()), 3);
+        pLivingEntity.hurt(ModDamageTypes.getDamageSource(pLivingEntity.level(), ModDamageTypes.RADIATION), 3);
         if (pLivingEntity instanceof Player player) {
             player.playSound(ModSounds.RADIATIONSOUND.get(), 0.75f, 1.0f);
         }

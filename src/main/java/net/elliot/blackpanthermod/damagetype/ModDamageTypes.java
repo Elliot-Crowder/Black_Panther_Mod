@@ -15,7 +15,7 @@ public class ModDamageTypes {
         return ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(BlackPantherMod.MOD_ID, name));
     }
 
-    public static DamageSource radiationDamage(Level level) {
-        return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(RADIATION));
+    public static DamageSource getDamageSource(Level level, ResourceKey<DamageType> pType) {
+        return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(pType));
     }
 }

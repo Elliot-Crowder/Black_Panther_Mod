@@ -3,7 +3,6 @@ To-Do:
         add enhanced jump height to panther power
         fix balancing on attribute modifiers
         make sure all attribute modifiers are actually taking effect
-        some attributes are reset upon rejoining world but not power capability data
     create feature list (list of everything in the mod for documentation)
     Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture
@@ -27,8 +26,7 @@ To-Do:
 
 
 Edge Cases:
-    there is one case of redundancy in onClonePlayer where setPower() and setHeartColor() are called from
-    BlackPantherPowerCapabilities. This is redundant because it sets them to values that they already have
+
 
 
 Feature list:

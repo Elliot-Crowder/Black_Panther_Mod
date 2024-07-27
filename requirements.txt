@@ -2,7 +2,6 @@ To-Do:
     * Fix BlackPantherPowerCapabilities
         add enhanced jump height to panther power
         fix balancing on attribute modifiers
-    reformat PlayerCapEvents for better readability and performance
     Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture
     make vibranium sickness turn your hunger bar purple
@@ -11,7 +10,7 @@ To-Do:
         add texture for unactivated and activated fruit
         unactivated must be crafted with something to make the activated fruit
         fruit makes your hearts purple
-    make garden structure where dormant fruit generates (maybe add a boss here?)
+    make garden structure where dormant fruit generates (like a dungeon with maybe a boss to get the fruit)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
     add all tools and armor
         if fruit not eaten, armor and tools give temporary vibranium decay
@@ -19,4 +18,4 @@ To-Do:
     Add tag descriptions for all items
     make sure all functionality works in multiplayer
     edit mods.toml and gradle.properties for Mods List page
-    organize files and code for final version
+    organize files and code for final version and increase performance

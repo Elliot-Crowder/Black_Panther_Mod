@@ -17,13 +17,12 @@ public class ProcessedVibraniumVial extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player pPlayer, InteractionHand pUsedHand) {
-        ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
         if (!world.isClientSide && pPlayer instanceof ServerPlayer) {
             if (pPlayer.hasEffect(ModEffects.VIBRANIUM_DECAY.get())) {
                 pPlayer.removeEffect(ModEffects.VIBRANIUM_DECAY.get());
-                itemStack.shrink(1);
+                pPlayer.getItemInHand(pUsedHand).shrink(1);
             }
         }
-        return InteractionResultHolder.sidedSuccess(itemStack, world.isClientSide());
+        return InteractionResultHolder.sidedSuccess(pPlayer.getItemInHand(pUsedHand), world.isClientSide());
     }
 }

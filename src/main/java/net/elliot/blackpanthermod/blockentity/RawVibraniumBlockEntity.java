@@ -3,6 +3,7 @@ package net.elliot.blackpanthermod.blockentity;
 import net.elliot.blackpanthermod.blockentity.util.TickableBlockEntity;
 import net.elliot.blackpanthermod.init.ModEffects;
 import net.elliot.blackpanthermod.init.ModBlockEntities;
+import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -26,13 +27,15 @@ public class RawVibraniumBlockEntity extends BlockEntity implements TickableBloc
         if (tickCounter % 20 == 0) {
             tickCounter = 0;
             for (ServerPlayer player : playersInArea) {
-                MobEffectInstance existingSicknessEffect = player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get());
-                MobEffectInstance existingDecayEffect = player.getEffect(ModEffects.VIBRANIUM_DECAY.get());
-                if (existingSicknessEffect == null && existingDecayEffect == null) {
-                    player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
-                } else if (existingSicknessEffect != null && existingSicknessEffect.getDuration() <= 20) {
-                    player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(), -1));
-                }
+                player.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
+                    if (!power.hasPower()) {
+                        if (player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get()) == null && player.getEffect(ModEffects.VIBRANIUM_DECAY.get()) == null) {
+                            player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_SICKNESS.get(), 600));
+                        } else if (player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get()) != null && player.getEffect(ModEffects.VIBRANIUM_SICKNESS.get()).getDuration() <= 20) {
+                            player.addEffect(new MobEffectInstance(ModEffects.VIBRANIUM_DECAY.get(), -1));
+                        }
+                    }
+                });
             }
         }
     }

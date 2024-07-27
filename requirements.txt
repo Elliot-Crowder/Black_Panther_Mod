@@ -2,7 +2,6 @@ To-Do:
     * Fix BlackPantherPowerCapabilities
         add enhanced jump height to panther power
         fix balancing on attribute modifiers
-    remove burger and burnt burger
     reformat PlayerCapEvents for better readability and performance
     Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture

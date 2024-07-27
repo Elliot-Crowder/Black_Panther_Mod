@@ -15,10 +15,6 @@ public class ModItems {
             () -> new RawVibranium(new Item.Properties()));
     public static final RegistryObject<Item> PROCESSEDVIBRANIUMVIAL = ITEMS.register("processedvibraniumvial",
             () -> new ProcessedVibraniumVial(new Item.Properties()));
-    public static final RegistryObject<Item> BURGER = ITEMS.register("burger",
-            () -> new Burger(new Item.Properties()));
-    public static final RegistryObject<Item> BURNTBURGER = ITEMS.register("burntburger",
-            () -> new BurntBurger(new Item.Properties()));
     public static final RegistryObject<Item> DORMANTFRUIT = ITEMS.register("dormantfruit",
             () -> new DormantBlackPantherFruit(new Item.Properties()));
     public static final RegistryObject<Item> ACTIVATEDFRUIT = ITEMS.register("activatedfruit",

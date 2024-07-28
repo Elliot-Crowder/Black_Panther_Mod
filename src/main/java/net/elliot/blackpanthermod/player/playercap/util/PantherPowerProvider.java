@@ -1,11 +1,10 @@
-package net.elliot.blackpanthermod.playercap.util;
+package net.elliot.blackpanthermod.player.playercap.util;
 
-import net.elliot.blackpanthermod.playercap.BlackPantherPower;
-import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPower;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.capabilities.*;
-import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

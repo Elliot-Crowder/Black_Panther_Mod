@@ -1,4 +1,4 @@
-package net.elliot.blackpanthermod.playercap;
+package net.elliot.blackpanthermod.player.playercap;
 
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;

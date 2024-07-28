@@ -2,22 +2,18 @@ package net.elliot.blackpanthermod.event;
 
 
 import net.elliot.blackpanthermod.BlackPantherMod;
-import net.elliot.blackpanthermod.playercap.BlackPantherPower;
-import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
-import net.elliot.blackpanthermod.playercap.util.PantherPower;
-import net.elliot.blackpanthermod.playercap.util.PantherPowerProvider;
-import net.minecraft.nbt.CompoundTag;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPower;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
+import net.elliot.blackpanthermod.player.playercap.util.PantherPowerProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.jetbrains.annotations.NotNull;
 
 
 @Mod.EventBusSubscriber(modid="blackpanthermod",bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)

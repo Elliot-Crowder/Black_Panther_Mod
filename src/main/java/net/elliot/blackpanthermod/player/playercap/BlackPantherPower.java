@@ -1,6 +1,6 @@
-package net.elliot.blackpanthermod.playercap;
+package net.elliot.blackpanthermod.player.playercap;
 
-import net.elliot.blackpanthermod.playercap.util.PantherPower;
+import net.elliot.blackpanthermod.player.playercap.util.PantherPower;
 
 public class BlackPantherPower implements PantherPower {
 

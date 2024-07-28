@@ -24,8 +24,7 @@ public class RawVibraniumBlock extends Block implements EntityBlock {
 
     @Override
     public int getExpDrop(BlockState state, LevelReader level, RandomSource randomSource, BlockPos pos, int fortuneLevel, int silkTouchLevel) {
-        Random rand = new Random();
-        return silkTouchLevel == 0 ? rand.nextInt(6) + 3 : 0;
+        return silkTouchLevel == 0 ? new Random().nextInt(6) + 3 : 0;
     }
 
     @Override

@@ -1,20 +1,21 @@
 To-Do:
-    Finish the Raw Vibranium Block (add world generation)
-        recode tick function to decrease lag and remove milk loophole
-    fix ModBlocks and ModEffects so item properties and effect properties can be defined in their respective classes
-    Make VibraniumDecay class cleaner
+    * Fix BlackPantherPowerCapabilities
+        add enhanced jump height to panther power
+        fix balancing on attribute modifiers
+    Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture
-    made vibranium sickness turn your hunger bar purple
-    make vibranium decay turn your hearts black (like wither effect)
-    Add the Black Panther Fruit (permanently increases strength, speed, jump height, and health.)
-        if fruit not eaten, armor and tools gives vibranium decay
+    make vibranium sickness turn your hunger bar purple
+    make vibranium decay turn your hearts black and hunger bar purple
+    Finish the Black Panther Fruit
         add texture for unactivated and activated fruit
-        unactivated must be creafted with something to make the activated fruit
-        fruit makes you immune to sickness and decay
-    make garden structure where dormant fruit generates (maybe add a boss here?)
+        unactivated must be crafted with something to make the activated fruit
+        fruit makes your hearts purple
+    make garden structure where dormant fruit generates (like a dungeon with maybe a boss to get the fruit)
     Add new workstation to process raw vibranium and craft vibranium armor and tools
     add all tools and armor
+        if fruit not eaten, armor and tools give temporary vibranium decay
+    for any instance where sickness or decay is added, check if player has panther power and give immunity if true
+    Add tag descriptions for all items
     make sure all functionality works in multiplayer
-
-    Edge Cases:
-
+    edit mods.toml and gradle.properties for Mods List page
+    organize files and code for final version and increase performance

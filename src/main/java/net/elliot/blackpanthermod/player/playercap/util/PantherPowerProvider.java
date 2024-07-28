@@ -10,17 +10,16 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PantherPowerProvider implements ICapabilitySerializable<CompoundTag> {
-    private final LazyOptional<BlackPantherPower> instance = LazyOptional.of(BlackPantherPower::new);
 
+    private final LazyOptional<BlackPantherPower> instance = LazyOptional.of(BlackPantherPower::new);
     private BlackPantherPower blackpantherpower = null;
 
-    private BlackPantherPower createPlayerPower(){
-        if(this.blackpantherpower == null){
+    private BlackPantherPower createPlayerPower() {
+        if (this.blackpantherpower == null) {
             this.blackpantherpower = new BlackPantherPower();
         }
         return this.blackpantherpower;
     }
-
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction) {
@@ -44,5 +43,4 @@ public class PantherPowerProvider implements ICapabilitySerializable<CompoundTag
             power.setHeartColor(compoundTag.getInt("heartColor"));
         });
     }
-
 }

@@ -1,18 +1,15 @@
 package net.elliot.blackpanthermod.effect;
 
-import net.elliot.blackpanthermod.init.ModDamageTypes;
+import net.elliot.blackpanthermod.damagetype.ModDamageTypes;
+import net.elliot.blackpanthermod.init.ModItems;
 import net.elliot.blackpanthermod.init.ModSounds;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.server.ServerLifecycleHooks;
-import java.lang.reflect.Method;
+import net.minecraft.world.item.ItemStack;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VibraniumDecayEffect extends MobEffect {
     public VibraniumDecayEffect(MobEffectCategory pCategory, int pColor) { super(pCategory, pColor); }
@@ -28,49 +25,16 @@ public class VibraniumDecayEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        MobEffectInstance effectInstance = pLivingEntity.getEffect(this);
-        int duration = effectInstance.getDuration();
-        Level level;
-        if (getRegistryAccess() != null) {
-            level = getRegistryAccess();
-        } else {
-            level = null;
-        }
-
-        Object damageSource = getDamageSource(level, ModDamageTypes.RADIATION);
+        pLivingEntity.hurt(ModDamageTypes.getDamageSource(pLivingEntity.level(), ModDamageTypes.RADIATION), 3);
         if (pLivingEntity instanceof Player player) {
-            pLivingEntity.hurt((DamageSource) damageSource,3.0f);
-            player.playSound(ModSounds.RADIATIONSOUND.get());
-            player.causeFoodExhaustion(1.0f);
+            player.playSound(ModSounds.RADIATIONSOUND.get(), 0.75f, 1.0f);
         }
     }
 
-    private Object accessPrivateMethod(Object instance, String methodName, Class<?>[] paramTypes, Object... params){
-        try {
-            Method method = instance.getClass().getDeclaredMethod(methodName,paramTypes);
-            method.setAccessible(true);
-            return  method.invoke(instance,params);
-        } catch(Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private Object getDamageSource(Level level, Object modDamageType) {
-        try {
-            Object damageSources = level.damageSources();
-            return accessPrivateMethod(damageSources,"source",new Class<?>[]{modDamageType.getClass()},modDamageType);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private Level getRegistryAccess() {
-        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
-        if (server != null) {
-            return server.getLevel(Level.OVERWORLD);
-        }
-        return null;
+    @Override
+    public List<ItemStack> getCurativeItems() {
+        List<ItemStack> curativeItems = new ArrayList<>();
+        curativeItems.add(new ItemStack(ModItems.PROCESSEDVIBRANIUMVIAL.get()));
+        return curativeItems;
     }
 }

@@ -9,14 +9,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModSounds {
-    public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
-            DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, BlackPantherMod.MOD_ID);
+    public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, BlackPantherMod.MOD_ID);
 
-    public static final RegistryObject<SoundEvent> RADIATIONSOUND = registerSoundEvents("radiationsound");
-
-    private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
-        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(BlackPantherMod.MOD_ID, name)));
-    }
+    public static final RegistryObject<SoundEvent> RADIATIONSOUND = SOUND_EVENTS.register("radiationsound",
+            () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(BlackPantherMod.MOD_ID, "radiationsound")));
 
     public static void register(IEventBus eventBus) { SOUND_EVENTS.register(eventBus); }
 }

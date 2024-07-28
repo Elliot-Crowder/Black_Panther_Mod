@@ -9,6 +9,6 @@ public interface TickableBlockEntity {
     void tick();
 
     static <T extends BlockEntity >BlockEntityTicker<T> getTickerHelper(Level level){
-        return level.isClientSide()? null : (level0, pos0, state0,blockEntity) -> ((RawVibraniumBlockEntity)blockEntity).tick();
+        return level.isClientSide() ? null : (level0, pos0, state0, blockEntity) -> ((RawVibraniumBlockEntity)blockEntity).tick();
     }
 }

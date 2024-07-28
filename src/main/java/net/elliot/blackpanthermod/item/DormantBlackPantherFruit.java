@@ -10,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class DormantBlackPantherFruit extends Item  {
     public DormantBlackPantherFruit(Properties pProperties) {
@@ -25,7 +26,7 @@ public class DormantBlackPantherFruit extends Item  {
             .build();
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity player) {
+    public @NotNull ItemStack finishUsingItem(@NotNull ItemStack stack, Level world, @NotNull LivingEntity player) {
         if (!world.isClientSide && player instanceof ServerPlayer pTarget) {
             BlackPantherPowerCapability.resetPlayerAttributes(pTarget);
         }

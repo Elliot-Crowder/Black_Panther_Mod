@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModBlockEntities {
+
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, BlackPantherMod.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<RawVibraniumBlockEntity>> RAW_VIBRANIUM_BLOCK_ENTITY =

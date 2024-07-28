@@ -1,7 +1,6 @@
 package net.elliot.blackpanthermod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.elliot.blackpanthermod.damagetype.ModDamageTypes;
 import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
 import net.minecraft.commands.CommandSourceStack;
@@ -21,7 +20,7 @@ public class RemovePantherPower {
                 })));
     }
 
-    private static int removePantherPower(CommandSourceStack pSource, ServerPlayer pTarget) throws CommandSyntaxException {
+    private static int removePantherPower(CommandSourceStack pSource, ServerPlayer pTarget) {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
             if (power.hasPower()) {
                 BlackPantherPowerCapability.resetPlayerAttributes(pTarget);

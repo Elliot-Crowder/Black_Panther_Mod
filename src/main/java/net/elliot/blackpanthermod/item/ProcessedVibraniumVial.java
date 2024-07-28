@@ -9,6 +9,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class ProcessedVibraniumVial extends Item {
     public ProcessedVibraniumVial(Properties pProperties) {
@@ -16,7 +17,7 @@ public class ProcessedVibraniumVial extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player pPlayer, InteractionHand pUsedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level world, @NotNull Player pPlayer, @NotNull InteractionHand pUsedHand) {
         if (!world.isClientSide && pPlayer instanceof ServerPlayer) {
             if (pPlayer.hasEffect(ModEffects.VIBRANIUM_DECAY.get())) {
                 pPlayer.removeEffect(ModEffects.VIBRANIUM_DECAY.get());

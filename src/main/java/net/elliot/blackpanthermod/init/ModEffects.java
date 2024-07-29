@@ -19,7 +19,5 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> VIBRANIUM_DECAY = MOB_EFFECTS.register("vibraniumdecay",
             () -> new VibraniumDecayEffect(MobEffectCategory.HARMFUL, 5578058));
 
-    public static void register(IEventBus eventBus){
-        MOB_EFFECTS.register(eventBus);
-    }
+    public static void register(IEventBus eventBus){ MOB_EFFECTS.register(eventBus); }
 }

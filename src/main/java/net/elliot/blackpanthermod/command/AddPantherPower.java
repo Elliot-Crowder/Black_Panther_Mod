@@ -6,11 +6,12 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 
 public class AddPantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("applypantherpower")
+        dispatcher
+                .register(Commands.literal("applypantherpower")
                 .requires((command) -> {
                     return command.hasPermission(2);
                 })
@@ -19,7 +20,7 @@ public class AddPantherPower {
                 })));
     }
 
-    private static int applyPantherPower(CommandSourceStack pSource, ServerPlayer pTarget) {
+    private static int applyPantherPower(CommandSourceStack pSource, Player pTarget) {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
             if (power.hasPower()) {
                 pSource.sendSuccess(() -> {

@@ -7,11 +7,12 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 
 public class RemovePantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("removepantherpower")
+        dispatcher
+                .register(Commands.literal("removepantherpower")
                 .requires((command) -> {
                     return command.hasPermission(2);
                 })
@@ -20,7 +21,7 @@ public class RemovePantherPower {
                 })));
     }
 
-    private static int removePantherPower(CommandSourceStack pSource, ServerPlayer pTarget) {
+    private static int removePantherPower(CommandSourceStack pSource, Player pTarget) {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
             if (power.hasPower()) {
                 BlackPantherPowerCapability.resetPlayerAttributes(pTarget);

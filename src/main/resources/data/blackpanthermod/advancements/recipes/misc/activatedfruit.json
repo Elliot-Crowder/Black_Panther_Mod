@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dormantfruit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blackpanthermod:dormantfruit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_dormantfruit"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blackpanthermod:activatedfruit"
+    ]
+  },
+  "sends_telemetry_event": false
+}

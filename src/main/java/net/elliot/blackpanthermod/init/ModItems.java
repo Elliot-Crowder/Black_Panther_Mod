@@ -1,7 +1,10 @@
 package net.elliot.blackpanthermod.init;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
-import net.elliot.blackpanthermod.item.*;
+import net.elliot.blackpanthermod.item.BlackPantherFruit;
+import net.elliot.blackpanthermod.item.DormantBlackPantherFruit;
+import net.elliot.blackpanthermod.item.ProcessedVibraniumVial;
+import net.elliot.blackpanthermod.item.RawVibranium;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

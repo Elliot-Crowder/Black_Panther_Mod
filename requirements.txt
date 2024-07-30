@@ -4,7 +4,6 @@ To-Do:
         fix balancing on attribute modifiers
     Add world gen for Raw Vibranium Block
     add vibranium decay and sickness texture
-    add raw vibranium texture
     make vibranium sickness turn your hunger bar purple
     make vibranium decay turn your hearts black and hunger bar purple
     Finish the Black Panther Fruit
@@ -16,7 +15,7 @@ To-Do:
     add all tools and armor
         if fruit not eaten, armor and tools give temporary vibranium decay
     for any instance where sickness or decay is added, check if player has panther power and give immunity if true
-    Add tag descriptions for all items
+    Add tooltip descriptions for all items
     make sure all functionality works in multiplayer
     edit mods.toml and gradle.properties for Mods List page
     organize files and code for final version and increase performance

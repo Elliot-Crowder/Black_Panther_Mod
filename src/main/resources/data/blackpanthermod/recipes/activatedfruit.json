@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "pattern":
+  [
+    "VSV",
+    "SDS",
+    "VSV"
+  ],
+  "key":
+  {
+    "S":
+    {
+      "item": "minecraft:nether_star"
+    },
+    "D":
+    {
+      "item": "blackpanthermod:dormantfruit"
+    },
+    "V":
+    {
+      "item": "blackpanthermod:processedvibraniumvial"
+    }
+  },
+  "result":
+  {
+    "item": "blackpanthermod:activatedfruit"
+  }
+}

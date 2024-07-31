@@ -25,7 +25,7 @@ public class RemovePantherPower {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
             if (power.hasPower()) {
                 BlackPantherPowerCapability.resetPlayerAttributes(pTarget);
-                pTarget.hurt(ModDamageTypes.getDamageSource(pTarget.level(), ModDamageTypes.RADIATION), 0.1f);
+                pTarget.hurt(ModDamageTypes.getDamageSource(pTarget.level(), ModDamageTypes.RADIATION), 1.0f);
                 pSource.sendSuccess(() -> {
                     return Component.literal("The power of The Black Panther was removed from " + pTarget.getName().getString());
                 }, true);

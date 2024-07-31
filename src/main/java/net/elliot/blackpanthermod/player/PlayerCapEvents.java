@@ -1,9 +1,9 @@
 package net.elliot.blackpanthermod.player;
 
 import net.elliot.blackpanthermod.BlackPantherMod;
-import net.elliot.blackpanthermod.playercap.BlackPantherPower;
-import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
-import net.elliot.blackpanthermod.playercap.util.PantherPowerProvider;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPower;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
+import net.elliot.blackpanthermod.player.playercap.util.PantherPowerProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -31,16 +31,7 @@ public class PlayerCapEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onPlayerJump(LivingEvent.LivingJumpEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) {
-            player.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
-                if (power.hasPower()) {
-                    player.sendSystemMessage(Component.literal("attempting jump"));
-                }
-            });
-        }
-    }
+
 
     @SubscribeEvent
     public static void onClonePlayer(PlayerEvent.Clone e) {
@@ -62,14 +53,5 @@ public class PlayerCapEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) {
-            player.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
-                if (power.hasPower()) {
-                    BlackPantherPowerCapability.modifyPlayerAttributes(player);
-                }
-            });
-        }
-    }
+
 }

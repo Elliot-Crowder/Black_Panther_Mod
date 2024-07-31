@@ -1,6 +1,6 @@
 package net.elliot.blackpanthermod.item;
 
-import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;

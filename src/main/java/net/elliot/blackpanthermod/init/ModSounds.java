@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModSounds {
+
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, BlackPantherMod.MOD_ID);
 
     public static final RegistryObject<SoundEvent> RADIATIONSOUND = SOUND_EVENTS.register("radiationsound",

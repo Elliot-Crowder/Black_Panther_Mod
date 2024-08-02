@@ -11,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModEffects {
+
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, BlackPantherMod.MOD_ID);
 
     public static final RegistryObject<MobEffect> VIBRANIUM_SICKNESS = MOB_EFFECTS.register("vibraniumsickness",
@@ -18,7 +19,5 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> VIBRANIUM_DECAY = MOB_EFFECTS.register("vibraniumdecay",
             () -> new VibraniumDecayEffect(MobEffectCategory.HARMFUL, 5578058));
 
-    public static void register(IEventBus eventBus){
-        MOB_EFFECTS.register(eventBus);
-    }
+    public static void register(IEventBus eventBus){ MOB_EFFECTS.register(eventBus); }
 }

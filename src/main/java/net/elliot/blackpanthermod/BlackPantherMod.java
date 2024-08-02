@@ -2,7 +2,7 @@ package net.elliot.blackpanthermod;
 
 import com.mojang.logging.LogUtils;
 import net.elliot.blackpanthermod.event.CommandEvents;
-import net.elliot.blackpanthermod.event.PlayerCapEvents;
+import net.elliot.blackpanthermod.player.PlayerCapEvents;
 import net.elliot.blackpanthermod.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

@@ -1,27 +1,14 @@
-package net.elliot.blackpanthermod.playercap;
+package net.elliot.blackpanthermod.player.playercap;
 
-import net.elliot.blackpanthermod.playercap.util.PantherPower;
-import net.minecraftforge.common.util.INBTSerializable;
+
+import net.elliot.blackpanthermod.player.playercap.util.PantherPower;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraftforge.common.util.INBTSerializable;
 
 public class BlackPantherPower implements PantherPower, INBTSerializable<CompoundTag> {
 
     private boolean hasPower = false;
     private int heartColor = 0xFF0000;
-
-    @Override
-    public CompoundTag serializeNBT() {
-        CompoundTag tag = new CompoundTag();
-        tag.putBoolean("HasPower", hasPower);
-        tag.putInt("HeartColor", heartColor);
-        return tag;
-    }
-
-    @Override
-    public void deserializeNBT(CompoundTag tag) {
-        this.hasPower = tag.getBoolean("HasPower");
-        this.heartColor = tag.getInt("HeartColor");
-    }
 
     @Override
     public boolean hasPower() {
@@ -46,5 +33,19 @@ public class BlackPantherPower implements PantherPower, INBTSerializable<Compoun
     public void copyFrom(BlackPantherPower source){
         this.hasPower = source.hasPower;
         this.heartColor = source.heartColor;
+    }
+
+    @Override
+    public CompoundTag serializeNBT() {
+        CompoundTag tag = new CompoundTag();
+        tag.putBoolean("HasPower", hasPower);
+        tag.putInt("HeartColor", heartColor);
+        return tag;
+    }
+
+    @Override
+    public void deserializeNBT(CompoundTag tag) {
+        this.hasPower = tag.getBoolean("HasPower");
+        this.heartColor = tag.getInt("HeartColor");
     }
 }

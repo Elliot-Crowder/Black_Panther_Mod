@@ -1,4 +1,4 @@
-package net.elliot.blackpanthermod.playercap;
+package net.elliot.blackpanthermod.player.playercap;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attributes;

@@ -2,7 +2,7 @@ package net.elliot.blackpanthermod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.elliot.blackpanthermod.damagetype.ModDamageTypes;
-import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;

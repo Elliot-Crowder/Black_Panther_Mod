@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 public class CommandEvents {
 
     @SubscribeEvent
-    public static void onRegisterCommands(RegisterCommandsEvent event){
+    public static void onRegisterCommands(RegisterCommandsEvent event) {
         AddPantherPower.register(event.getDispatcher());
         CheckPantherPower.register(event.getDispatcher());
         RemovePantherPower.register(event.getDispatcher());

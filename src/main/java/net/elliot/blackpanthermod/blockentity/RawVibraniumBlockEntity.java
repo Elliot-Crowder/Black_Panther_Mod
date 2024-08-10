@@ -3,7 +3,7 @@ package net.elliot.blackpanthermod.blockentity;
 import net.elliot.blackpanthermod.blockentity.util.TickableBlockEntity;
 import net.elliot.blackpanthermod.init.ModEffects;
 import net.elliot.blackpanthermod.init.ModBlockEntities;
-import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;

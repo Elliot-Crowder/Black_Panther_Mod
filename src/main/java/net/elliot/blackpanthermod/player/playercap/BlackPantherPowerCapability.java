@@ -1,4 +1,4 @@
-package net.elliot.blackpanthermod.playercap;
+package net.elliot.blackpanthermod.player.playercap;
 
 import net.elliot.blackpanthermod.damagetype.ModDamageTypes;
 import net.minecraft.world.effect.MobEffects;

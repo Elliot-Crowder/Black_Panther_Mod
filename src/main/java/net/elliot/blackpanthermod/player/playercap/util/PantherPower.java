@@ -1,4 +1,4 @@
-package net.elliot.blackpanthermod.playercap.util;
+package net.elliot.blackpanthermod.player.playercap.util;
 
 public interface PantherPower {
     boolean hasPower();

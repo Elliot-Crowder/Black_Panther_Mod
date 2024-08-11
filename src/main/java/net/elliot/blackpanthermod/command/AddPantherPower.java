@@ -1,11 +1,12 @@
 package net.elliot.blackpanthermod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import net.elliot.blackpanthermod.playercap.BlackPantherPowerCapability;
+import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 
 public class AddPantherPower {
@@ -20,7 +21,7 @@ public class AddPantherPower {
                 })));
     }
 
-    private static int applyPantherPower(CommandSourceStack pSource, Player pTarget) {
+    private static int applyPantherPower(CommandSourceStack pSource, ServerPlayer pTarget) {
         pTarget.getCapability(BlackPantherPowerCapability.BLACK_PANTHER_POWER_CAPABILITY).ifPresent(power -> {
             if (power.hasPower()) {
                 pSource.sendSuccess(() -> {

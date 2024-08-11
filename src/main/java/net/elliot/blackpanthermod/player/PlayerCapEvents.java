@@ -4,14 +4,12 @@ import net.elliot.blackpanthermod.BlackPantherMod;
 import net.elliot.blackpanthermod.player.playercap.BlackPantherPower;
 import net.elliot.blackpanthermod.player.playercap.BlackPantherPowerCapability;
 import net.elliot.blackpanthermod.player.playercap.util.PantherPowerProvider;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -30,8 +28,6 @@ public class PlayerCapEvents {
             event.addCapability(new ResourceLocation(BlackPantherMod.MOD_ID,"properties"), new PantherPowerProvider());
         }
     }
-
-
 
     @SubscribeEvent
     public static void onClonePlayer(PlayerEvent.Clone e) {
@@ -52,6 +48,4 @@ public class PlayerCapEvents {
             playerOld.invalidateCaps();
         }
     }
-
-
 }

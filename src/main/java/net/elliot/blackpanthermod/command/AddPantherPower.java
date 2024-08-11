@@ -7,7 +7,6 @@ import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
 
 public class AddPantherPower {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {

@@ -8,7 +8,6 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class PlayerEvents {
     public static void preInit(){
@@ -17,7 +16,6 @@ public class PlayerEvents {
         eBus.addListener(EventPriority.NORMAL, false, PlayerEvent.PlayerLoggedInEvent.class, PlayerEvents::onPlayerLogin);
         eBus.addListener(EventPriority.NORMAL,false,LivingEvent.LivingJumpEvent.class, PlayerEvents::onPlayerJump);
     }
-
 
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {

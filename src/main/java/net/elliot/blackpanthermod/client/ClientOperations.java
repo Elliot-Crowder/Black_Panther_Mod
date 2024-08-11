@@ -5,7 +5,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-
 import java.util.OptionalDouble;
 
 public class ClientOperations {
@@ -18,7 +17,7 @@ public class ClientOperations {
         Player player = Minecraft.getInstance().player;
         Vec3 velocity = player.getDeltaMovement();
 
-        switch(operation){
+        switch(operation) {
             case SET -> player.setDeltaMovement(x.orElseGet(velocity::x), y.orElseGet(velocity::y), z.orElseGet(velocity::z));
             case ADD -> player.setDeltaMovement(velocity.add(x.orElse(0), y.orElse(0), z.orElse(0)));
             case MULTIPLY ->  player.setDeltaMovement(velocity.multiply(x.orElse(1), y.orElse(1), z.orElse(1)));

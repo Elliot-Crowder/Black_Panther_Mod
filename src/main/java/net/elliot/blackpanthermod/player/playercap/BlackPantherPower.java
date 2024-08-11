@@ -1,6 +1,5 @@
 package net.elliot.blackpanthermod.player.playercap;
 
-
 import net.elliot.blackpanthermod.player.playercap.util.PantherPower;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.util.INBTSerializable;

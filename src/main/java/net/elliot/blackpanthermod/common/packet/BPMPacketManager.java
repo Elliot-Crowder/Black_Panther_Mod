@@ -19,14 +19,14 @@ public class BPMPacketManager {
             .clientAcceptedVersions(VER::equals)
             .simpleChannel();
 
-
     public static void registerPackets(){
         int id = 0;
-        INSTANCE.registerMessage(id++, UpdateClientVelocityPacket.class,UpdateClientVelocityPacket::encode, UpdateClientVelocityPacket::decode, UpdateClientVelocityPacket::handle);
+        INSTANCE.registerMessage(id++, UpdateClientVelocityPacket.class, UpdateClientVelocityPacket::encode, UpdateClientVelocityPacket::decode, UpdateClientVelocityPacket::handle);
 
     }
-    public static void SendToPlayer(ServerPlayer player, BPMPacket packet){
-        if(player.connection != null){
+
+    public static void SendToPlayer(ServerPlayer player, BPMPacket packet) {
+        if (player.connection != null) {
             INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), packet);
         }
     }

@@ -3,16 +3,15 @@ package net.elliot.blackpanthermod.common.packet.packets;
 import net.elliot.blackpanthermod.client.ClientOperations;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
-
 import java.util.OptionalDouble;
 import java.util.function.Supplier;
 
-public class UpdateClientVelocityPacket implements BPMPacket{
+public class UpdateClientVelocityPacket implements BPMPacket {
+
     private final Operation operation;
     private final OptionalDouble x;
     private final OptionalDouble y;
     private final OptionalDouble z;
-
 
     public UpdateClientVelocityPacket(Operation operation, OptionalDouble x, OptionalDouble y, OptionalDouble z) {
         this.operation = operation;
@@ -33,10 +32,8 @@ public class UpdateClientVelocityPacket implements BPMPacket{
         this(operation, OptionalDouble.empty(), OptionalDouble.of(y), OptionalDouble.empty());
     }
 
-
     public void encode(FriendlyByteBuf buffer){
         buffer.writeInt(operation.GetOrdinal());
-
 
         //write x to buffer
         buffer.writeBoolean(x.isPresent());
@@ -60,7 +57,6 @@ public class UpdateClientVelocityPacket implements BPMPacket{
 
         return new UpdateClientVelocityPacket(operation,x,y,z);
     }
-
 
     public void handle(Supplier<NetworkEvent.Context> context){
         context.get().enqueueWork(() -> ClientOperations.adjustPlayerMovement(x, y, z, operation));
@@ -90,7 +86,6 @@ public class UpdateClientVelocityPacket implements BPMPacket{
                 default -> SET;
             };
         }
-
         public int GetOrdinal(){
             return this.ordinal;
         }

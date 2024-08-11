@@ -2,6 +2,7 @@ package net.elliot.blackpanthermod;
 
 import com.mojang.logging.LogUtils;
 import net.elliot.blackpanthermod.event.CommandEvents;
+import net.elliot.blackpanthermod.event.GuiEvents;
 import net.elliot.blackpanthermod.player.PlayerCapEvents;
 import net.elliot.blackpanthermod.init.*;
 import net.minecraftforge.api.distmarker.Dist;
@@ -38,6 +39,7 @@ public class BlackPantherMod {
         // Register event handler classes
         MinecraftForge.EVENT_BUS.register(CommandEvents.class);
         MinecraftForge.EVENT_BUS.register(PlayerCapEvents.class);
+        MinecraftForge.EVENT_BUS.register(GuiEvents.class);
 
         // Register the commonSetup method for modloading
         EventBus.addListener(this::commonSetup);
